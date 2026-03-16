@@ -1,0 +1,289 @@
+student_id,student_name,course,module,session_date,session_type,tutor_name,campus,attendance_status,minutes_late
+1001,Ali Khan,Data Technician Apprenticeship,Data Fundamentals,01/03/2026,Workshop,A. Patel,City Centre,Present,0
+1002,Sarah Smith,Data Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,S. Ahmed,West Campus,Present,0
+1003,James Taylor,Data Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,M. Chittenden,City Centre,Authorised Absence,0
+1004,Lily Brown,Data Technician Apprenticeship,Data Fundamentals,01/03/2026,Workshop,A. Patel,West Campus,Present,0
+1005,David Wilson,Data Technician Apprenticeship,Data Fundamentals,01/03/2026,Workshop,S. Ahmed,Riverside,Present,0
+1006,Emily Clark,Data Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,M. Chittenden,City Centre,Absent,0
+1007,Daniel Green,Data Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,J. Roberts,City Centre,Present,0
+1008,Sophia White,Business Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,S. Ahmed,West Campus,Present,0
+1009,Lucas Hall,Data Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,A. Patel,Riverside,Present,0
+1010,Olivia King,Data Technician Apprenticeship,Data Fundamentals,01/03/2026,Workshop,J. Roberts,City Centre,Late,0
+1011,Henry Scott,Business Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,J. Roberts,City Centre,Present,0
+1012,Ava Turner,Data Technician Apprenticeship,Data Fundamentals,01/03/2026,Workshop,J. Roberts,Riverside,Present,0
+1013,Jack Hill,Data Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,A. Patel,Riverside,Present,0
+1014,Mia Adams,Data Technician Apprenticeship,Data Fundamentals,01/03/2026,Workshop,S. Ahmed,City Centre,Present,0
+1015,Noah Baker,Data Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,J. Roberts,West Campus,Present,0
+1016,Grace Nelson,Business Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,J. Roberts,City Centre,Present,0
+1017,Leo Carter,Data Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,A. Patel,City Centre,Present,0
+1018,Ella Mitchell,Data Technician Apprenticeship,Data Fundamentals,01/03/2026,Workshop,A. Patel,Riverside,Present,0
+1019,Oscar Perez,Data Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,S. Ahmed,City Centre,Present,0
+1020,Isla Roberts,Business Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,A. Patel,Riverside,Present,0
+1021,Amelia Walker,Data Technician Apprenticeship,Data Fundamentals,01/03/2026,Workshop,A. Patel,City Centre,Authorised Absence,0
+1022,Ethan Phillips,Data Technician Apprenticeship,Data Fundamentals,01/03/2026,Workshop,S. Ahmed,West Campus,Present,0
+1023,Freya Campbell,Data Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,M. Chittenden,Riverside,Present,0
+1024,Benjamin Parker,Data Technician Apprenticeship,Data Fundamentals,01/03/2026,Workshop,J. Roberts,City Centre,Present,0
+1025,Chloe Evans,Data Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,M. Chittenden,Riverside,Present,0
+1026,Arthur Edwards,Business Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,M. Chittenden,West Campus,Present,0
+1027,Sienna Collins,Business Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,A. Patel,Riverside,Present,0
+1028,Thomas Stewart,Data Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,J. Roberts,City Centre,Present,0
+1029,Evie Morris,Data Technician Apprenticeship,Data Fundamentals,01/03/2026,Workshop,A. Patel,City Centre,Absent,0
+1030,Harry Rogers,Data Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,S. Ahmed,West Campus,Absent,0
+1031,Zara Cook,Business Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,S. Ahmed,West Campus,Present,0
+1032,Samuel Morgan,Business Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,A. Patel,City Centre,Present,0
+1033,Ruby Bell,Business Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,J. Roberts,West Campus,Present,0
+1034,Jacob Murphy,Data Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,S. Ahmed,West Campus,Absent,0
+1035,Hannah Bailey,Business Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,A. Patel,Riverside,Present,0
+1036,Finley Cooper,Data Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,A. Patel,City Centre,Present,0
+1037,Poppy Richardson,Data Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,A. Patel,West Campus,Present,0
+1038,Adam Cox,Data Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,A. Patel,City Centre,Present,0
+1039,Layla Howard,Data Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,S. Ahmed,Riverside,Present,0
+1040,Charlie Ward,Data Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,M. Chittenden,Riverside,Present,0
+1041,Nora Torres,Data Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,S. Ahmed,Riverside,Present,0
+1042,Isaac Peterson,Data Technician Apprenticeship,Data Fundamentals,01/03/2026,Workshop,M. Chittenden,West Campus,Absent,0
+1043,Amber Gray,Data Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,A. Patel,Riverside,Present,0
+1044,Joseph Ramirez,Data Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,A. Patel,Riverside,Absent,0
+1045,Megan James,Data Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,M. Chittenden,City Centre,Absent,0
+1046,Nathan Watson,Data Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,A. Patel,West Campus,Present,0
+1047,Rosie Brooks,Data Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,S. Ahmed,Riverside,Present,0
+1048,Callum Kelly,Business Analyst Apprenticeship,Data Fundamentals,01/03/2026,Workshop,S. Ahmed,City Centre,Present,0
+1001,Ali Khan,Data Technician Apprenticeship,Statistics Basics,05/03/2026,Seminar,A. Patel,City Centre,Present,0
+1002,Sarah Smith,Data Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,S. Ahmed,West Campus,Absent,0
+1003,James Taylor,Data Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,M. Chittenden,City Centre,Present,0
+1004,Lily Brown,Data Technician Apprenticeship,Statistics Basics,05/03/2026,Seminar,A. Patel,West Campus,Present,0
+1005,David Wilson,Data Technician Apprenticeship,Statistics Basics,05/03/2026,Seminar,S. Ahmed,Riverside,Absent,0
+1006,Emily Clark,Data Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,M. Chittenden,City Centre,Absent,0
+1007,Daniel Green,Data Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,J. Roberts,City Centre,Absent,0
+1008,Sophia White,Business Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,S. Ahmed,West Campus,Present,0
+1009,Lucas Hall,Data Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,A. Patel,Riverside,Present,0
+1010,Olivia King,Data Technician Apprenticeship,Statistics Basics,05/03/2026,Seminar,J. Roberts,City Centre,Present,0
+1011,Henry Scott,Business Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,J. Roberts,City Centre,Present,0
+1012,Ava Turner,Data Technician Apprenticeship,Statistics Basics,05/03/2026,Seminar,J. Roberts,Riverside,Absent,0
+1013,Jack Hill,Data Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,A. Patel,Riverside,Present,0
+1014,Mia Adams,Data Technician Apprenticeship,Statistics Basics,05/03/2026,Seminar,S. Ahmed,City Centre,Present,0
+1015,Noah Baker,Data Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,J. Roberts,West Campus,Present,0
+1016,Grace Nelson,Business Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,J. Roberts,City Centre,Present,0
+1017,Leo Carter,Data Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,A. Patel,City Centre,Present,0
+1018,Ella Mitchell,Data Technician Apprenticeship,Statistics Basics,05/03/2026,Seminar,A. Patel,Riverside,Present,0
+1019,Oscar Perez,Data Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,S. Ahmed,City Centre,Absent,0
+1020,Isla Roberts,Business Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,A. Patel,Riverside,Present,0
+1021,Amelia Walker,Data Technician Apprenticeship,Statistics Basics,05/03/2026,Seminar,A. Patel,City Centre,Present,0
+1022,Ethan Phillips,Data Technician Apprenticeship,Statistics Basics,05/03/2026,Seminar,S. Ahmed,West Campus,Present,0
+1023,Freya Campbell,Data Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,M. Chittenden,Riverside,Absent,0
+1024,Benjamin Parker,Data Technician Apprenticeship,Statistics Basics,05/03/2026,Seminar,J. Roberts,City Centre,Present,0
+1025,Chloe Evans,Data Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,M. Chittenden,Riverside,Present,0
+1026,Arthur Edwards,Business Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,M. Chittenden,West Campus,Absent,0
+1027,Sienna Collins,Business Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,A. Patel,Riverside,Present,0
+1028,Thomas Stewart,Data Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,J. Roberts,City Centre,Present,0
+1029,Evie Morris,Data Technician Apprenticeship,Statistics Basics,05/03/2026,Seminar,A. Patel,City Centre,Absent,0
+1030,Harry Rogers,Data Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,S. Ahmed,West Campus,Absent,0
+1031,Zara Cook,Business Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,S. Ahmed,West Campus,Present,0
+1032,Samuel Morgan,Business Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,A. Patel,City Centre,Present,0
+1033,Ruby Bell,Business Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,J. Roberts,West Campus,Present,0
+1034,Jacob Murphy,Data Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,S. Ahmed,West Campus,Absent,0
+1035,Hannah Bailey,Business Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,A. Patel,Riverside,Present,0
+1036,Finley Cooper,Data Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,A. Patel,City Centre,Absent,0
+1037,Poppy Richardson,Data Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,A. Patel,West Campus,Present,0
+1038,Adam Cox,Data Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,A. Patel,City Centre,Absent,0
+1039,Layla Howard,Data Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,S. Ahmed,Riverside,Present,0
+1040,Charlie Ward,Data Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,M. Chittenden,Riverside,Present,0
+1041,Nora Torres,Data Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,S. Ahmed,Riverside,Present,0
+1042,Isaac Peterson,Data Technician Apprenticeship,Statistics Basics,05/03/2026,Seminar,M. Chittenden,West Campus,Present,0
+1043,Amber Gray,Data Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,A. Patel,Riverside,Present,0
+1044,Joseph Ramirez,Data Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,A. Patel,Riverside,Present,0
+1045,Megan James,Data Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,M. Chittenden,City Centre,Present,0
+1046,Nathan Watson,Data Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,A. Patel,West Campus,Present,0
+1047,Rosie Brooks,Data Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,S. Ahmed,Riverside,Present,0
+1048,Callum Kelly,Business Analyst Apprenticeship,Statistics Basics,05/03/2026,Seminar,S. Ahmed,City Centre,Present,0
+1001,Ali Khan,Data Technician Apprenticeship,SQL Introduction,10/03/2026,Workshop,A. Patel,City Centre,Authorised Absence,0
+1002,Sarah Smith,Data Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,S. Ahmed,West Campus,Present,0
+1003,James Taylor,Data Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,M. Chittenden,City Centre,Present,0
+1004,Lily Brown,Data Technician Apprenticeship,SQL Introduction,10/03/2026,Workshop,A. Patel,West Campus,Present,0
+1005,David Wilson,Data Technician Apprenticeship,SQL Introduction,10/03/2026,Workshop,S. Ahmed,Riverside,Absent,0
+1006,Emily Clark,Data Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,M. Chittenden,City Centre,Present,0
+1007,Daniel Green,Data Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,J. Roberts,City Centre,Present,0
+1008,Sophia White,Business Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,S. Ahmed,West Campus,Absent,0
+1009,Lucas Hall,Data Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,A. Patel,Riverside,Present,0
+1010,Olivia King,Data Technician Apprenticeship,SQL Introduction,10/03/2026,Workshop,J. Roberts,City Centre,Present,0
+1011,Henry Scott,Business Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,J. Roberts,City Centre,Present,0
+1012,Ava Turner,Data Technician Apprenticeship,SQL Introduction,10/03/2026,Workshop,J. Roberts,Riverside,Present,0
+1013,Jack Hill,Data Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,A. Patel,Riverside,Authorised Absence,0
+1014,Mia Adams,Data Technician Apprenticeship,SQL Introduction,10/03/2026,Workshop,S. Ahmed,City Centre,Present,0
+1015,Noah Baker,Data Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,J. Roberts,West Campus,Absent,0
+1016,Grace Nelson,Business Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,J. Roberts,City Centre,Present,0
+1017,Leo Carter,Data Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,A. Patel,City Centre,Present,0
+1018,Ella Mitchell,Data Technician Apprenticeship,SQL Introduction,10/03/2026,Workshop,A. Patel,Riverside,Absent,0
+1019,Oscar Perez,Data Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,S. Ahmed,City Centre,Present,0
+1020,Isla Roberts,Business Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,A. Patel,Riverside,Present,0
+1021,Amelia Walker,Data Technician Apprenticeship,SQL Introduction,10/03/2026,Workshop,A. Patel,City Centre,Present,0
+1022,Ethan Phillips,Data Technician Apprenticeship,SQL Introduction,10/03/2026,Workshop,S. Ahmed,West Campus,Present,0
+1023,Freya Campbell,Data Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,M. Chittenden,Riverside,Absent,0
+1024,Benjamin Parker,Data Technician Apprenticeship,SQL Introduction,10/03/2026,Workshop,J. Roberts,City Centre,Absent,0
+1025,Chloe Evans,Data Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,M. Chittenden,Riverside,Present,0
+1026,Arthur Edwards,Business Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,M. Chittenden,West Campus,Present,0
+1027,Sienna Collins,Business Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,A. Patel,Riverside,Present,0
+1028,Thomas Stewart,Data Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,J. Roberts,City Centre,Present,0
+1029,Evie Morris,Data Technician Apprenticeship,SQL Introduction,10/03/2026,Workshop,A. Patel,City Centre,Present,0
+1030,Harry Rogers,Data Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,S. Ahmed,West Campus,Absent,0
+1031,Zara Cook,Business Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,S. Ahmed,West Campus,Present,0
+1032,Samuel Morgan,Business Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,A. Patel,City Centre,Present,0
+1033,Ruby Bell,Business Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,J. Roberts,West Campus,Present,0
+1034,Jacob Murphy,Data Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,S. Ahmed,West Campus,Present,0
+1035,Hannah Bailey,Business Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,A. Patel,Riverside,Present,0
+1036,Finley Cooper,Data Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,A. Patel,City Centre,Present,0
+1037,Poppy Richardson,Data Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,A. Patel,West Campus,Present,0
+1038,Adam Cox,Data Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,A. Patel,City Centre,Absent,0
+1039,Layla Howard,Data Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,S. Ahmed,Riverside,Present,0
+1040,Charlie Ward,Data Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,M. Chittenden,Riverside,Present,0
+1041,Nora Torres,Data Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,S. Ahmed,Riverside,Present,0
+1042,Isaac Peterson,Data Technician Apprenticeship,SQL Introduction,10/03/2026,Workshop,M. Chittenden,West Campus,Present,0
+1043,Amber Gray,Data Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,A. Patel,Riverside,Present,0
+1044,Joseph Ramirez,Data Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,A. Patel,Riverside,Authorised Absence,0
+1045,Megan James,Data Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,M. Chittenden,City Centre,Present,0
+1046,Nathan Watson,Data Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,A. Patel,West Campus,Present,0
+1047,Rosie Brooks,Data Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,S. Ahmed,Riverside,Present,0
+1048,Callum Kelly,Business Analyst Apprenticeship,SQL Introduction,10/03/2026,Workshop,S. Ahmed,City Centre,Present,0
+1001,Ali Khan,Data Technician Apprenticeship,Excel for Analysis,12/03/2026,Lab,A. Patel,City Centre,Authorised Absence,0
+1002,Sarah Smith,Data Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,S. Ahmed,West Campus,Present,0
+1003,James Taylor,Data Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,M. Chittenden,City Centre,Present,0
+1004,Lily Brown,Data Technician Apprenticeship,Excel for Analysis,12/03/2026,Lab,A. Patel,West Campus,Present,0
+1005,David Wilson,Data Technician Apprenticeship,Excel for Analysis,12/03/2026,Lab,S. Ahmed,Riverside,Absent,0
+1006,Emily Clark,Data Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,M. Chittenden,City Centre,Present,0
+1007,Daniel Green,Data Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,J. Roberts,City Centre,Present,0
+1008,Sophia White,Business Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,S. Ahmed,West Campus,Absent,0
+1009,Lucas Hall,Data Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,A. Patel,Riverside,Absent,0
+1010,Olivia King,Data Technician Apprenticeship,Excel for Analysis,12/03/2026,Lab,J. Roberts,City Centre,Present,0
+1011,Henry Scott,Business Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,J. Roberts,City Centre,Present,0
+1012,Ava Turner,Data Technician Apprenticeship,Excel for Analysis,12/03/2026,Lab,J. Roberts,Riverside,Absent,0
+1013,Jack Hill,Data Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,A. Patel,Riverside,Present,0
+1014,Mia Adams,Data Technician Apprenticeship,Excel for Analysis,12/03/2026,Lab,S. Ahmed,City Centre,Present,0
+1015,Noah Baker,Data Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,J. Roberts,West Campus,Present,0
+1016,Grace Nelson,Business Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,J. Roberts,City Centre,Present,0
+1017,Leo Carter,Data Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,A. Patel,City Centre,Present,0
+1018,Ella Mitchell,Data Technician Apprenticeship,Excel for Analysis,12/03/2026,Lab,A. Patel,Riverside,Absent,0
+1019,Oscar Perez,Data Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,S. Ahmed,City Centre,Present,0
+1020,Isla Roberts,Business Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,A. Patel,Riverside,Late,12
+1021,Amelia Walker,Data Technician Apprenticeship,Excel for Analysis,12/03/2026,Lab,A. Patel,City Centre,Present,0
+1022,Ethan Phillips,Data Technician Apprenticeship,Excel for Analysis,12/03/2026,Lab,S. Ahmed,West Campus,Absent,0
+1023,Freya Campbell,Data Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,M. Chittenden,Riverside,Present,0
+1024,Benjamin Parker,Data Technician Apprenticeship,Excel for Analysis,12/03/2026,Lab,J. Roberts,City Centre,Present,0
+1025,Chloe Evans,Data Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,M. Chittenden,Riverside,Present,0
+1026,Arthur Edwards,Business Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,M. Chittenden,West Campus,Present,0
+1027,Sienna Collins,Business Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,A. Patel,Riverside,Present,0
+1028,Thomas Stewart,Data Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,J. Roberts,City Centre,Present,0
+1029,Evie Morris,Data Technician Apprenticeship,Excel for Analysis,12/03/2026,Lab,A. Patel,City Centre,Present,0
+1030,Harry Rogers,Data Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,S. Ahmed,West Campus,Absent,0
+1031,Zara Cook,Business Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,S. Ahmed,West Campus,Present,0
+1032,Samuel Morgan,Business Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,A. Patel,City Centre,Present,0
+1033,Ruby Bell,Business Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,J. Roberts,West Campus,Present,0
+1034,Jacob Murphy,Data Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,S. Ahmed,West Campus,Absent,0
+1035,Hannah Bailey,Business Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,A. Patel,Riverside,Absent,0
+1036,Finley Cooper,Data Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,A. Patel,City Centre,Absent,0
+1037,Poppy Richardson,Data Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,A. Patel,West Campus,Present,0
+1038,Adam Cox,Data Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,A. Patel,City Centre,Absent,0
+1039,Layla Howard,Data Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,S. Ahmed,Riverside,Present,0
+1040,Charlie Ward,Data Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,M. Chittenden,Riverside,Present,0
+1041,Nora Torres,Data Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,S. Ahmed,Riverside,Present,0
+1042,Isaac Peterson,Data Technician Apprenticeship,Excel for Analysis,12/03/2026,Lab,M. Chittenden,West Campus,Present,0
+1043,Amber Gray,Data Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,A. Patel,Riverside,Present,0
+1044,Joseph Ramirez,Data Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,A. Patel,Riverside,Present,0
+1045,Megan James,Data Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,M. Chittenden,City Centre,Absent,0
+1046,Nathan Watson,Data Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,A. Patel,West Campus,Present,0
+1047,Rosie Brooks,Data Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,S. Ahmed,Riverside,Present,0
+1048,Callum Kelly,Business Analyst Apprenticeship,Excel for Analysis,12/03/2026,Lab,S. Ahmed,City Centre,Present,0
+1001,Ali Khan,Data Technician Apprenticeship,Data Visualisation,17/03/2026,Seminar,A. Patel,City Centre,Absent,0
+1002,Sarah Smith,Data Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,S. Ahmed,West Campus,Present,0
+1003,James Taylor,Data Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,M. Chittenden,City Centre,Absent,0
+1004,Lily Brown,Data Technician Apprenticeship,Data Visualisation,17/03/2026,Seminar,A. Patel,West Campus,Present,0
+1005,David Wilson,Data Technician Apprenticeship,Data Visualisation,17/03/2026,Seminar,S. Ahmed,Riverside,Absent,0
+1006,Emily Clark,Data Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,M. Chittenden,City Centre,Present,0
+1007,Daniel Green,Data Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,J. Roberts,City Centre,Present,0
+1008,Sophia White,Business Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,S. Ahmed,West Campus,Present,0
+1009,Lucas Hall,Data Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,A. Patel,Riverside,Present,0
+1010,Olivia King,Data Technician Apprenticeship,Data Visualisation,17/03/2026,Seminar,J. Roberts,City Centre,Present,0
+1011,Henry Scott,Business Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,J. Roberts,City Centre,Present,0
+1012,Ava Turner,Data Technician Apprenticeship,Data Visualisation,17/03/2026,Seminar,J. Roberts,Riverside,Present,0
+1013,Jack Hill,Data Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,A. Patel,Riverside,Present,0
+1014,Mia Adams,Data Technician Apprenticeship,Data Visualisation,17/03/2026,Seminar,S. Ahmed,City Centre,Present,0
+1015,Noah Baker,Data Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,J. Roberts,West Campus,Present,0
+1016,Grace Nelson,Business Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,J. Roberts,City Centre,Present,0
+1017,Leo Carter,Data Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,A. Patel,City Centre,Present,0
+1018,Ella Mitchell,Data Technician Apprenticeship,Data Visualisation,17/03/2026,Seminar,A. Patel,Riverside,Late,8
+1019,Oscar Perez,Data Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,S. Ahmed,City Centre,Authorised Absence,0
+1020,Isla Roberts,Business Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,A. Patel,Riverside,Present,0
+1021,Amelia Walker,Data Technician Apprenticeship,Data Visualisation,17/03/2026,Seminar,A. Patel,City Centre,Present,0
+1022,Ethan Phillips,Data Technician Apprenticeship,Data Visualisation,17/03/2026,Seminar,S. Ahmed,West Campus,Present,0
+1023,Freya Campbell,Data Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,M. Chittenden,Riverside,Present,0
+1024,Benjamin Parker,Data Technician Apprenticeship,Data Visualisation,17/03/2026,Seminar,J. Roberts,City Centre,Present,0
+1025,Chloe Evans,Data Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,M. Chittenden,Riverside,Present,0
+1026,Arthur Edwards,Business Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,M. Chittenden,West Campus,Present,0
+1027,Sienna Collins,Business Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,A. Patel,Riverside,Present,0
+1028,Thomas Stewart,Data Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,J. Roberts,City Centre,Late,0
+1029,Evie Morris,Data Technician Apprenticeship,Data Visualisation,17/03/2026,Seminar,A. Patel,City Centre,Absent,0
+1030,Harry Rogers,Data Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,S. Ahmed,West Campus,Absent,0
+1031,Zara Cook,Business Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,S. Ahmed,West Campus,Present,0
+1032,Samuel Morgan,Business Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,A. Patel,City Centre,Present,0
+1033,Ruby Bell,Business Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,J. Roberts,West Campus,Present,0
+1034,Jacob Murphy,Data Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,S. Ahmed,West Campus,Absent,0
+1035,Hannah Bailey,Business Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,A. Patel,Riverside,Present,0
+1036,Finley Cooper,Data Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,A. Patel,City Centre,Absent,0
+1037,Poppy Richardson,Data Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,A. Patel,West Campus,Present,0
+1038,Adam Cox,Data Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,A. Patel,City Centre,Present,0
+1039,Layla Howard,Data Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,S. Ahmed,Riverside,Absent,0
+1040,Charlie Ward,Data Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,M. Chittenden,Riverside,Present,0
+1041,Nora Torres,Data Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,S. Ahmed,Riverside,Present,0
+1042,Isaac Peterson,Data Technician Apprenticeship,Data Visualisation,17/03/2026,Seminar,M. Chittenden,West Campus,Present,0
+1043,Amber Gray,Data Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,A. Patel,Riverside,Present,0
+1044,Joseph Ramirez,Data Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,A. Patel,Riverside,Present,0
+1045,Megan James,Data Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,M. Chittenden,City Centre,Present,0
+1046,Nathan Watson,Data Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,A. Patel,West Campus,Present,0
+1047,Rosie Brooks,Data Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,S. Ahmed,Riverside,Present,0
+1048,Callum Kelly,Business Analyst Apprenticeship,Data Visualisation,17/03/2026,Seminar,S. Ahmed,City Centre,Present,0
+1001,Ali Khan,Data Technician Apprenticeship,Professional Practice,24/03/2026,Tutorial,A. Patel,City Centre,Authorised Absence,0
+1002,Sarah Smith,Data Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,S. Ahmed,West Campus,Present,0
+1003,James Taylor,Data Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,M. Chittenden,City Centre,Present,0
+1004,Lily Brown,Data Technician Apprenticeship,Professional Practice,24/03/2026,Tutorial,A. Patel,West Campus,Present,0
+1005,David Wilson,Data Technician Apprenticeship,Professional Practice,24/03/2026,Tutorial,S. Ahmed,Riverside,Authorised Absence,0
+1006,Emily Clark,Data Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,M. Chittenden,City Centre,Present,0
+1007,Daniel Green,Data Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,J. Roberts,City Centre,Present,0
+1008,Sophia White,Business Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,S. Ahmed,West Campus,Absent,0
+1009,Lucas Hall,Data Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,A. Patel,Riverside,Present,0
+1010,Olivia King,Data Technician Apprenticeship,Professional Practice,24/03/2026,Tutorial,J. Roberts,City Centre,Present,0
+1011,Henry Scott,Business Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,J. Roberts,City Centre,Absent,0
+1012,Ava Turner,Data Technician Apprenticeship,Professional Practice,24/03/2026,Tutorial,J. Roberts,Riverside,Present,0
+1013,Jack Hill,Data Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,A. Patel,Riverside,Present,0
+1014,Mia Adams,Data Technician Apprenticeship,Professional Practice,24/03/2026,Tutorial,S. Ahmed,City Centre,Present,0
+1015,Noah Baker,Data Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,J. Roberts,West Campus,Late,8
+1016,Grace Nelson,Business Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,J. Roberts,City Centre,Present,0
+1017,Leo Carter,Data Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,A. Patel,City Centre,Present,0
+1018,Ella Mitchell,Data Technician Apprenticeship,Professional Practice,24/03/2026,Tutorial,A. Patel,Riverside,Present,0
+1019,Oscar Perez,Data Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,S. Ahmed,City Centre,Present,0
+1020,Isla Roberts,Business Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,A. Patel,Riverside,Present,0
+1021,Amelia Walker,Data Technician Apprenticeship,Professional Practice,24/03/2026,Tutorial,A. Patel,City Centre,Absent,0
+1022,Ethan Phillips,Data Technician Apprenticeship,Professional Practice,24/03/2026,Tutorial,S. Ahmed,West Campus,Authorised Absence,0
+1023,Freya Campbell,Data Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,M. Chittenden,Riverside,Present,0
+1024,Benjamin Parker,Data Technician Apprenticeship,Professional Practice,24/03/2026,Tutorial,J. Roberts,City Centre,Present,0
+1025,Chloe Evans,Data Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,M. Chittenden,Riverside,Present,0
+1026,Arthur Edwards,Business Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,M. Chittenden,West Campus,Present,0
+1027,Sienna Collins,Business Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,A. Patel,Riverside,Present,0
+1028,Thomas Stewart,Data Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,J. Roberts,City Centre,Present,0
+1029,Evie Morris,Data Technician Apprenticeship,Professional Practice,24/03/2026,Tutorial,A. Patel,City Centre,Present,0
+1030,Harry Rogers,Data Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,S. Ahmed,West Campus,Absent,0
+1031,Zara Cook,Business Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,S. Ahmed,West Campus,Present,0
+1032,Samuel Morgan,Business Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,A. Patel,City Centre,Present,0
+1033,Ruby Bell,Business Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,J. Roberts,West Campus,Present,0
+1034,Jacob Murphy,Data Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,S. Ahmed,West Campus,Absent,0
+1035,Hannah Bailey,Business Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,A. Patel,Riverside,Present,0
+1036,Finley Cooper,Data Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,A. Patel,City Centre,Present,0
+1037,Poppy Richardson,Data Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,A. Patel,West Campus,Present,0
+1038,Adam Cox,Data Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,A. Patel,City Centre,Present,0
+1039,Layla Howard,Data Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,S. Ahmed,Riverside,Present,0
+1040,Charlie Ward,Data Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,M. Chittenden,Riverside,Present,0
+1041,Nora Torres,Data Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,S. Ahmed,Riverside,Present,0
+1042,Isaac Peterson,Data Technician Apprenticeship,Professional Practice,24/03/2026,Tutorial,M. Chittenden,West Campus,Present,0
+1043,Amber Gray,Data Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,A. Patel,Riverside,Present,0
+1044,Joseph Ramirez,Data Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,A. Patel,Riverside,Absent,0
+1045,Megan James,Data Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,M. Chittenden,City Centre,Absent,0
+1046,Nathan Watson,Data Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,A. Patel,West Campus,Present,0
+1047,Rosie Brooks,Data Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,S. Ahmed,Riverside,Present,0
+1048,Callum Kelly,Business Analyst Apprenticeship,Professional Practice,24/03/2026,Tutorial,S. Ahmed,City Centre,Present,0
