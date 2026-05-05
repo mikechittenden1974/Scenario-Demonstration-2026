@@ -1,0 +1,13 @@
+delivery_id,delivery_date,route_code,courier_id,parcel_type,weight_kg,status
+SE-041,2026-04-21,R02,C001,Glow-Tulips,2.6,Delivered
+SE-042,2026-04-21,R03,C002,Spare Bolts,18.9,Delivered
+SE-043,2026-04-22,R02,C003,Comet Dust,5.1,delivered
+SE-044,2026-04-22,R01,C004,Star Maps,0.7,Delivered
+SE-045,2026-04-23,R04,C005,Engine Oil ,12.3,Delivered
+SE-046,2026-04-23,R02,C006,glow-tulips,2.4,Delivered
+SE-047,2026-04-24,R05,C007,Spare Bolts,19.5,Delivered
+SE-048,2026-04-24,R02,C001,Comet Dust,4.7,Pending
+SE-049,2026-04-25,R03,C002,Star Maps,0.6,Delivered
+SE-050,2026-04-25,R02,C003,Glow-Tulips,2.5,Delivered
+SE-051,2026-04-26,R01,C004,Engine Oil,11.8,Delivered
+SE-052,2026-04-26,R02,C005,Spare Bolts,18.7,Delivered

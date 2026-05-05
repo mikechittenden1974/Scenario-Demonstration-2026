@@ -1,0 +1,11 @@
+delivery_id,route_code,courier_id,parcel_type,weight_kg,dispatch_date,delivery_date,status,customer_ref,notes
+GPS-041,R01,DRG-03,Standard,2.1,2025-03-01,2025-03-03,Delivered,CUST-201,New quarter
+GPS-042,R02,DRG-07,Express,0.9,2025-03-02,2025-03-03,Delivered,CUST-202,Signed for
+GPS-043,R03,DRG-11,Fragile,1.4,2025-03-03,2025-03-06,Delivered,CUST-203,Careful handling
+GPS-044,R04,DRG-14,Standard,3.2,2025-03-04,2025-03-07,Delayed,CUST-204,Ice on route
+GPS-045,R05,DRG-19,Express,0.6,2025-03-05,2025-03-06,Delivered,CUST-205,
+GPS-046,R06,DRG-22,Standard,2.8,2025-03-06,2025-03-09,Delivered,CUST-206,Heavy parcel
+GPS-047,R01,DRG-03,Fragile,1.0,2025-03-07,2025-03-09,Delivered,CUST-207,Pottery inside
+GPS-048,R02,DRG-07,Standard,1.7,2025-03-08,2025-03-10,In Transit,CUST-208,Overnight stop
+GPS-049,R03,DRG-11,Express,0.5,2025-03-09,2025-03-10,Delivered,CUST-209,Priority
+GPS-050,R04,DRG-14,Standard,2.4,2025-03-10,2025-03-13,Delivered,CUST-210,Routine

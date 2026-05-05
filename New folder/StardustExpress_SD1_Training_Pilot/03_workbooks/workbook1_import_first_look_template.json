@@ -1,0 +1,429 @@
+{
+  "template_name": "dragonwing_workbook_screen",
+  "source": "workbook1_import_first_look.json",
+  "generated_at": "04 May 2026 11:36 GMT Summer Time",
+  "cover": {
+    "brand": "Stardust Express",
+    "programme": "Level 3 Data Technician - SD1 Training Pilot",
+    "workbook_number": "Workbook 1",
+    "title": "Import and First Look",
+    "strapline": "Bring four files into Excel and have a calm, curious first look."
+  },
+  "snapshot": {
+    "difficulty": "2 / 10",
+    "estimated_time": "30 to 45 minutes"
+  },
+  "resources": {
+    "start_file": "02_workbook_data/workbook1_start.xlsx",
+    "complete_file": "02_workbook_data/workbook1_complete.xlsx"
+  },
+  "team_note": {
+    "speaker": "Pip Quasar, fellow Apprentice Data Technician",
+    "message": "Welcome aboard the Hopper Station. Workbook 1 is a gentle warm-up. We are not cleaning anything yet. We are just bringing the files in and looking around. If something looks odd, jot it down. We will tidy in Workbook 2."
+  },
+  "mission_brief": [
+    "Stardust Express has four small data files sitting on the station server.",
+    "Captain Nova has asked you to bring them into Excel using Power Query so the team can finally see the full picture for the quarter.",
+    "In this workbook you will import each file, name everything clearly, and notice a few simple patterns."
+  ],
+  "why_this_matters": [
+    "Importing well is the foundation of every later step.",
+    "If the headers are wrong or the row counts are off here, nothing else will work.",
+    "Spending a few quiet minutes looking at the data also helps you spot questions worth asking."
+  ],
+  "learning_outcomes": {
+    "skills": [
+      "S1 - Source, format and present data securely.",
+      "S3 - Apply tools and techniques to manipulate data.",
+      "S6 - Identify, analyse and interpret data."
+    ],
+    "knowledge": [
+      "K7 - The principles of data analysis.",
+      "K8 - Data structures and database systems.",
+      "K10 - Data quality issues and basic profiling."
+    ],
+    "behaviours": [
+      "B2 - Logical and analytical thinking.",
+      "B4 - Take responsibility, working safely and securely."
+    ],
+    "plain_english": "By the end of this workbook you will be able to bring different file types into Excel, check that they have arrived correctly, and notice early clues about the data."
+  },
+  "sections": [
+    {
+      "kind": "lesson_intro",
+      "heading": "Welcome to Hopper Station",
+      "body": [
+        "Stardust Express is a small intergalactic parcel delivery service.",
+        "Captain Nova Hartwell needs to know which routes were busiest this quarter, and whether any deliveries look unmatched or unusual.",
+        "Glim Bracket, the Quartermaster, will use the final tidy table to plan the next resupply.",
+        "Your job in this workbook is the very first step - bring the four source files into Excel using Power Query.",
+        "Power Query is Excel's tool for importing, cleaning and reshaping data."
+      ]
+    },
+    {
+      "kind": "glossary",
+      "heading": "A few words before we start",
+      "items": [
+        {
+          "term": "Power Query",
+          "definition": "Excel's tool for importing, cleaning and reshaping data. You will use it through the Data tab."
+        },
+        {
+          "term": "Navigator",
+          "definition": "The window that appears when Power Query has connected to a file. It shows you what is inside the file."
+        },
+        {
+          "term": "Header row",
+          "definition": "The first row of a table that tells you what each column means."
+        },
+        {
+          "term": "Query",
+          "definition": "A saved set of steps that brings data into Excel and shapes it. Each file you import becomes its own query."
+        },
+        {
+          "term": "Pattern",
+          "definition": "Something that appears more than once or stands out in the data. A pattern is a clue, not a problem."
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 1 - Open the start workbook",
+      "intro": "Before any importing happens, get the start workbook open. This is your home base for Workbook 1.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Open 02_workbook_data/workbook1_start.xlsx in Excel.",
+            "Have a quick look at the Cover sheet and the empty Inspection Notes sheet.",
+            "Save the file straight away with a copy name such as workbook1_start_yourname.xlsx so the original stays untouched."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. Open Excel.",
+            "Step 2. Use File > Open > Browse and navigate to 02_workbook_data/workbook1_start.xlsx.",
+            "Step 3. Click Open.",
+            "Step 4. Click the Cover sheet tab and read it.",
+            "Step 5. Click the Inspection Notes tab. It is empty for now - you will fill it in later.",
+            "Step 6. Use File > Save As to save a working copy with your name in it."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "You should see a workbook with two sheets at the bottom: Cover and Inspection Notes.",
+            "If you see something different, do not panic. Close without saving and reopen 02_workbook_data/workbook1_start.xlsx."
+          ]
+        },
+        {
+          "type": "nice_work",
+          "items": [
+            "You are set up. Tea and biscuits are now permitted."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 2 - Import the main delivery file",
+      "intro": "First you will import the main delivery records from 01_source_data/source_primary.xlsx using Power Query.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Use Data > Get Data to bring source_primary.xlsx into the workbook.",
+            "Use the Navigator window to choose the correct sheet.",
+            "Load the data so it appears on its own sheet called Deliveries."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. Click the Data tab on the Excel ribbon.",
+            "Step 2. Click Get Data > From File > From Excel Workbook.",
+            "Step 3. In the file picker, navigate to 01_source_data and select source_primary.xlsx, then click Import.",
+            "Step 4. The Navigator window appears. On the left, click the Deliveries sheet once to see a preview on the right.",
+            "Step 5. Check that the first row shows the column names (delivery_id, delivery_date, route_code, courier_id, parcel_type, weight_kg, status). If it does, that is the header row.",
+            "Step 6. Click Load. Excel loads the data to a new sheet.",
+            "Step 7. Right-click the new sheet tab at the bottom, choose Rename and rename the sheet to Deliveries.",
+            "Step 8. In the Queries & Connections pane on the right, find the new query, right-click it and choose Rename. Rename the query to Deliveries."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "You should now have a sheet called Deliveries containing 40 rows of delivery data plus a header row.",
+            "You should see a query called Deliveries in the Queries & Connections pane.",
+            "If yours looks different, close the workbook without saving and start Mission 2 again from Step 1."
+          ]
+        },
+        {
+          "type": "common_trap",
+          "items": [
+            "If you click Transform Data instead of Load, you will end up in the Power Query Editor. That is fine - just close it for now using Home > Close & Load. We will spend more time in there in Workbook 2."
+          ]
+        },
+        {
+          "type": "nice_work",
+          "items": [
+            "First file in. That is the hardest one out of the way. The next three are very similar."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 3 - Import the late deliveries (the append file)",
+      "intro": "Some deliveries arrived after the main file was sent. They live in 01_source_data/source_append.csv. You will import them now so they are ready to be appended later.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Use Data > Get Data to import source_append.csv.",
+            "Load the data to a new sheet called AppendDeliveries.",
+            "Notice that the columns are the same as the Deliveries sheet."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. Click the Data tab.",
+            "Step 2. Click Get Data > From File > From Text/CSV.",
+            "Step 3. In the file picker, navigate to 01_source_data and select source_append.csv, then click Import.",
+            "Step 4. A small preview window appears. Check that the column names look right and the file origin is set to a sensible option (65001: Unicode (UTF-8) usually works).",
+            "Step 5. Click Load.",
+            "Step 6. Rename the new sheet to AppendDeliveries.",
+            "Step 7. In the Queries & Connections pane, rename the query to AppendDeliveries."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "AppendDeliveries should have 12 rows of data plus a header row.",
+            "The columns should be the same as the Deliveries sheet: delivery_id, delivery_date, route_code, courier_id, parcel_type, weight_kg, status."
+          ]
+        },
+        {
+          "type": "spot_the_pattern",
+          "items": [
+            "Look at the column names on AppendDeliveries and Deliveries. Do they match?",
+            "Why might that matter later? No need to solve it yet. Just notice it."
+          ]
+        },
+        {
+          "type": "nice_work",
+          "items": [
+            "Two files in. You are halfway through the imports."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 4 - Import the courier list (related details)",
+      "intro": "Glim keeps a list of couriers in 01_source_data/source_secondary.csv. You will need this later to add courier names to your final table.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Use Data > Get Data to import source_secondary.csv.",
+            "Load the data to a new sheet called Couriers."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. Click the Data tab.",
+            "Step 2. Click Get Data > From File > From Text/CSV.",
+            "Step 3. Navigate to 01_source_data and select source_secondary.csv, then click Import.",
+            "Step 4. In the preview window, check that the columns look like courier_id, courier_name, ship_class, home_station and years_service.",
+            "Step 5. Click Load.",
+            "Step 6. Rename the new sheet to Couriers.",
+            "Step 7. Rename the query to Couriers in the Queries & Connections pane."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Couriers should have 18 rows of data plus a header row.",
+            "If you see fewer rows, scroll down to be sure the table has loaded fully."
+          ]
+        },
+        {
+          "type": "nice_work",
+          "items": [
+            "Three files in. You are nearly there."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 5 - Import the route lookup PDF",
+      "intro": "The route reference sheet lives in a PDF: 01_source_data/source_lookup.pdf. Power Query can pull a table out of a PDF for you.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Use Data > Get Data to import the table from source_lookup.pdf.",
+            "Load the route table to a new sheet called Routes."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. Click the Data tab.",
+            "Step 2. Click Get Data > From File > From PDF.",
+            "Step 3. Navigate to 01_source_data and select source_lookup.pdf, then click Import.",
+            "Step 4. The Navigator window appears. On the left, you should see one or more items such as Table001 (Page 1).",
+            "Step 5. Click Table001 (Page 1). Check the preview on the right - it should show route_code, route_name, sector and distance_lightyears.",
+            "Step 6. Click Load.",
+            "Step 7. Rename the new sheet to Routes.",
+            "Step 8. Rename the query to Routes in the Queries & Connections pane."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Routes should have 7 rows of data plus a header row.",
+            "If the preview shows column names like Column1, Column2 instead of route_code, route_name etc., click Transform Data, then Home > Use First Row as Headers, then Home > Close & Load."
+          ]
+        },
+        {
+          "type": "common_trap",
+          "items": [
+            "Some PDFs come in with the headers as the first data row. Only use First Row as Headers if the first row really is the header row. If you are unsure, peek at the actual PDF in a viewer first."
+          ]
+        },
+        {
+          "type": "nice_work",
+          "items": [
+            "All four files imported. Big tick. Take a breath - the easy bit is done."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 6 - Check headers and row counts",
+      "intro": "Now that everything is in, do a calm sanity check. This is the moment when small mistakes show up cheaply.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Visit each of the four loaded sheets in turn.",
+            "Note the number of data rows and confirm the headers are sensible."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. Click the Deliveries sheet. Click any cell in the table and press Ctrl + End. The cursor should land on row 41 (1 header + 40 data rows).",
+            "Step 2. Click the AppendDeliveries sheet and do the same. The cursor should land on row 13 (1 header + 12 data rows).",
+            "Step 3. Click the Couriers sheet and do the same. The cursor should land on row 19 (1 header + 18 data rows).",
+            "Step 4. Click the Routes sheet and do the same. The cursor should land on row 8 (1 header + 7 data rows).",
+            "Step 5. On each sheet, read the column names along row 1 and check they look sensible."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "If your row counts match the numbers above, you are in great shape.",
+            "If a row count is too small, the import probably stopped early. Delete that sheet and reimport using the matching Get Data step.",
+            "If a row count is too big, you may have imported headers as data. Use Undo or reimport.",
+            "Mistakes are normal. Use Undo and try again."
+          ]
+        },
+        {
+          "type": "nice_work",
+          "items": [
+            "You now have a tidy little four-sheet workbook with everything you need."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 7 - Spot simple patterns",
+      "intro": "Time for the fun part. You are going to look at the data with curious eyes and write what you notice on the Inspection Notes sheet.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Open the Inspection Notes sheet inside 02_workbook_data/workbook1_start.xlsx.",
+            "Answer each prompt in your own words.",
+            "There are no wrong answers. You are looking for clues, not problems."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. Click the Deliveries sheet. Look down the parcel_type column. Which value appears most often?",
+            "Step 2. Look at the route_code column. Does one route appear more often than the others?",
+            "Step 3. Look at the status column. Are there any odd casings, like Delivered, delivered and DELIVERED?",
+            "Step 4. Scroll for any blank cells. Note the delivery_id of any blank you find.",
+            "Step 5. Look at the weight_kg column. Does any number look unusually high or low?",
+            "Step 6. Compare the route_code values in Deliveries with the route_code values in Routes. Is there a route in Deliveries that is not in Routes?",
+            "Step 7. On the Inspection Notes sheet, write a short answer for each prompt."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Each Inspection Notes prompt should have a short answer in your own words.",
+            "There are no wrong answers in this mission - just careful looking.",
+            "If a prompt feels tricky, leave a question mark and come back to it after a tea break."
+          ]
+        },
+        {
+          "type": "spot_the_pattern",
+          "items": [
+            "What catches your eye?",
+            "A repeated category is a pattern.",
+            "A blank is a pattern.",
+            "An odd casing is a pattern.",
+            "A weight that is much bigger than the others is a pattern.",
+            "A code that does not appear in the lookup is a pattern.",
+            "No need to fix anything yet. Just notice."
+          ]
+        },
+        {
+          "type": "tiny_challenge",
+          "items": [
+            "Can you find at least one pattern in each of these columns: parcel_type, status, weight_kg, route_code? Write a short note for each on the Inspection Notes sheet."
+          ]
+        },
+        {
+          "type": "you_are_developing",
+          "items": [
+            "S1 - You sourced four files into Excel safely.",
+            "S6 - You started to interpret what the data is showing.",
+            "K10 - You spotted simple data quality issues.",
+            "B2 - You used calm, logical observation."
+          ]
+        },
+        {
+          "type": "nice_work",
+          "items": [
+            "Excellent first look. You have already spotted things that will save the team time later."
+          ]
+        }
+      ]
+    }
+  ],
+  "closing": {
+    "heading": "What you can now do",
+    "subheading": "Tick the things that feel true. The rest will firm up with practice.",
+    "outcomes": [
+      "I can use Data > Get Data to import an Excel file, a CSV file and a PDF table.",
+      "I can name sheets and queries clearly so they make sense to the rest of the team.",
+      "I can check row counts and headers after an import.",
+      "I can notice simple patterns in a table without panicking about fixing them.",
+      "I know that Power Query is Excel's tool for importing, cleaning and reshaping data."
+    ],
+    "next_step": "When you are ready, open 02_workbook_data/workbook2_start.xlsx and continue with Workbook 2 - Power Query Cleaning Toolkit."
+  },
+  "layout_mode": "screen"
+}

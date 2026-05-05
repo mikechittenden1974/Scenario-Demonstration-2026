@@ -1,0 +1,469 @@
+{
+  "cover": {
+    "brand": "Goblin Parcel Service — SD1 Training Pilot",
+    "programme": "Level 3 Data Technician Apprenticeship",
+    "workbook_number": "Workbook 1 of 3",
+    "title": "Import and First Look",
+    "strapline": "Bring your data into Excel and take a good look around."
+  },
+  "snapshot": {
+    "difficulty": "2 out of 10",
+    "estimated_time": "30 to 45 minutes"
+  },
+  "resources": {
+    "start_file": "02_workbook_data/workbook1_start.xlsx",
+    "complete_file": "02_workbook_data/workbook1_complete.xlsx",
+    "source_files_required": [
+      "01_source_data/source_primary.xlsx",
+      "01_source_data/source_append.csv",
+      "01_source_data/source_secondary.csv",
+      "01_source_data/source_lookup.pdf"
+    ]
+  },
+  "team_note": {
+    "speaker": "Munko Flysworth, Route Analyst",
+    "message": "Right then. Before we can answer any questions about GPS delivery performance, we need to get the data into Excel. Think of this workbook as unpacking the parcels before we sort them. We are not fixing anything yet — just looking. Take your time, have a poke around, and see what you notice."
+  },
+  "mission_brief": [
+    "GPS has four data files that need to be brought into Excel.",
+    "In this workbook, you will open each file using Power Query and load it to a sheet.",
+    "Then you will check row counts, column names, and spot any obvious patterns.",
+    "You are NOT cleaning the data in Workbook 1. That comes next.",
+    "For now, just explore."
+  ],
+  "why_this_matters": [
+    "Before you can clean or combine data, you need to understand what you have.",
+    "Importing data through Power Query means Excel keeps a connection to the source file.",
+    "This makes it easy to refresh the data later if the source file is updated.",
+    "Getting a first look also helps you plan your cleaning steps before you start."
+  ],
+  "learning_outcomes": {
+    "skills": [
+      "S1 — Import data from multiple file types into Excel using Power Query",
+      "S3 — Inspect a dataset to identify structure, row counts and column names",
+      "S6 — Record observations about data quality in a structured notes sheet"
+    ],
+    "knowledge": [
+      "K7 — Understand the difference between file types: xlsx, csv, pdf",
+      "K8 — Understand what a header row is and how Power Query detects it",
+      "K10 — Understand why data needs to be imported before it can be cleaned"
+    ],
+    "behaviours": [
+      "B2 — Approach unfamiliar data with curiosity rather than anxiety",
+      "B4 — Work methodically through each step before moving on"
+    ],
+    "plain_english": "By the end of this workbook, you will have four files imported into Excel and a clear picture of what each one contains."
+  },
+  "sections": [
+    {
+      "kind": "lesson_intro",
+      "heading": "What is Power Query?",
+      "body": [
+        "Power Query is Excel's built-in tool for importing, cleaning and reshaping data.",
+        "You reach it through the Data tab at the top of Excel.",
+        "When you use Power Query to bring in a file, Excel remembers where the file came from.",
+        "This means you can refresh the data at any time — useful when source files are updated.",
+        "In this workbook, you will use Power Query to import four source files."
+      ]
+    },
+    {
+      "kind": "glossary",
+      "heading": "Key Terms for This Workbook",
+      "items": [
+        {
+          "term": "Power Query",
+          "definition": "Excel's tool for importing, cleaning and reshaping data. Found under the Data tab."
+        },
+        {
+          "term": "Navigator window",
+          "definition": "A pop-up window that appears when you import a file. It lets you choose which table or sheet to load."
+        },
+        {
+          "term": "First Row as Headers",
+          "definition": "A Power Query setting that tells Excel the first row of your data contains column names, not actual data."
+        },
+        {
+          "term": "Row count",
+          "definition": "The number of rows of data in a table. Does not include the header row."
+        },
+        {
+          "term": "Column",
+          "definition": "A vertical field in a table. Each column holds one type of information, for example delivery_id or status."
+        },
+        {
+          "term": "Pattern",
+          "definition": "Something that appears more than once, or stands out from the rest. A pattern is a clue, not a problem."
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 1 — Open the Start Workbook",
+      "intro": "In this mission, you are going to open the file you will be working in throughout Workbook 1.",
+      "callouts": [
+        {
+          "type": "try_this",
+          "items": [
+            "Open File Explorer on your computer.",
+            "Navigate to the folder: 02_workbook_data",
+            "Find the file: workbook1_start.xlsx",
+            "Double-click the file to open it in Excel.",
+            "You should see a sheet called START HERE with instructions on it.",
+            "You should also see a sheet called Inspection Notes."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Can you see the START HERE sheet?",
+            "Can you see the Inspection Notes sheet?",
+            "If you can see both, you are in the right place.",
+            "If the file opened in a different program, right-click the file and choose Open with > Microsoft Excel."
+          ]
+        },
+        {
+          "type": "nice_work",
+          "items": [
+            "You have opened your start file.",
+            "In the next missions, you will bring the four GPS source files into this workbook."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 2 — Import the Main Delivery File",
+      "intro": "In this mission, you are going to use Power Query to import the main GPS delivery records. This file contains January and February delivery data.",
+      "callouts": [
+        {
+          "type": "why_this_matters",
+          "items": [
+            "The main delivery file — source_primary.xlsx — contains the bulk of the GPS delivery records.",
+            "Importing it through Power Query means Excel keeps a live connection to the file.",
+            "You will be able to see and work with the data on a sheet inside this workbook."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "In Excel, click the Data tab at the top of the screen.",
+            "Click Get Data.",
+            "In the menu that appears, hover over From File.",
+            "Click From Workbook.",
+            "A file picker window will open.",
+            "Navigate to the folder: 01_source_data",
+            "Select the file: source_primary.xlsx",
+            "Click Import.",
+            "The Navigator window will appear.",
+            "In the Navigator window, you will see a list on the left side.",
+            "Click on the item called Deliveries to select it.",
+            "A preview of the data will appear on the right side.",
+            "Check that the first row shows column names like delivery_id and route_code.",
+            "If the first row shows column names correctly, click Transform Data.",
+            "Power Query Editor will open.",
+            "In Power Query Editor, look at the top-left corner. You will see a field showing the query name.",
+            "Change the query name to: Deliveries_Primary",
+            "To rename the query: click the query name in the Queries panel on the left, then type the new name.",
+            "Now look at the bottom of the Power Query Editor window.",
+            "You should see the row count displayed, for example: 41 rows",
+            "Click Close and Load. Do not click Close and Load To — just Close and Load.",
+            "Power Query will load the data to a new sheet in your workbook.",
+            "The new sheet may be called Deliveries or Table1.",
+            "Right-click the sheet tab at the bottom of Excel.",
+            "Click Rename.",
+            "Type: Deliveries",
+            "Press Enter."
+          ]
+        },
+        {
+          "type": "common_trap",
+          "items": [
+            "When the Navigator window opens, make sure you select a table or sheet — not just the file name.",
+            "If you click the file name at the top of the Navigator list, the Import button may be greyed out.",
+            "Click the actual table name to select it, then the Import button becomes available.",
+            "Also: if you click Load instead of Transform Data, Power Query will load the data immediately without opening the editor.",
+            "If that happens, go to Data > Queries and Connections, find the Deliveries_Primary query, and double-click it to open it in the editor."
+          ]
+        },
+        {
+          "type": "spot_the_pattern",
+          "items": [
+            "Once the data is loaded, take a quick look at the Deliveries sheet.",
+            "What do you notice?",
+            "Do any values in the status column look different from the others?",
+            "Do any values in the parcel_type column look different?",
+            "No need to fix anything yet. Just notice what you see.",
+            "A pattern is a clue, not a problem."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Is there a sheet called Deliveries in your workbook?",
+            "Does the sheet show delivery records starting with GPS-001?",
+            "Can you see column headers like delivery_id, route_code, courier_id?",
+            "How many rows of data are there? Write the number in your Inspection Notes sheet.",
+            "If your row count looks very different from 41, check that you selected the correct table in the Navigator window."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 3 — Import the March Delivery Records",
+      "intro": "In this mission, you are going to import the March delivery records. These are stored in a CSV file — a simple text format that Excel can read.",
+      "callouts": [
+        {
+          "type": "why_this_matters",
+          "items": [
+            "The March records were saved separately during a system update.",
+            "They have the same columns as the main delivery file — same structure, different rows.",
+            "Later, in Workbook 3, you will stack these rows on top of the main delivery records.",
+            "That process is called an append.",
+            "For now, just bring the file in and have a look."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "In Excel, click the Data tab.",
+            "Click Get Data.",
+            "Hover over From File.",
+            "Click From Text/CSV.",
+            "A file picker window will open.",
+            "Navigate to the folder: 01_source_data",
+            "Select the file: source_append.csv",
+            "Click Import.",
+            "A preview window will appear. Excel should detect the column headers automatically.",
+            "Check that the first row shows delivery_id, route_code, courier_id and so on.",
+            "Click Transform Data to open Power Query Editor.",
+            "Rename this query to: Deliveries_Append",
+            "To rename: click the query name in the Queries panel on the left, type the new name, press Enter.",
+            "Look at the row count at the bottom of the editor.",
+            "Click Close and Load.",
+            "Power Query will load the data to a new sheet.",
+            "Rename the new sheet to: March Deliveries"
+          ]
+        },
+        {
+          "type": "common_trap",
+          "items": [
+            "CSV files sometimes open with all the data squashed into one column.",
+            "If you see this, check that Power Query has selected the correct delimiter.",
+            "In Power Query Editor, look for the Delimiter setting at the top of the preview.",
+            "It should say Comma. If it says something else, change it to Comma.",
+            "The columns should then separate correctly."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Is there a sheet called March Deliveries in your workbook?",
+            "Does the sheet show records starting with GPS-041?",
+            "How many rows of data are there? Write the number in your Inspection Notes sheet.",
+            "Do the column names match the Deliveries sheet?"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 4 — Import the Courier Dragon Details",
+      "intro": "In this mission, you are going to import the courier dragon details. This file tells you the name, type and home base of each delivery dragon.",
+      "callouts": [
+        {
+          "type": "why_this_matters",
+          "items": [
+            "The delivery records refer to each dragon using a code, like DRG-03 or DRG-07.",
+            "The courier dragon details file tells you what those codes mean.",
+            "Later, you will join this file to the delivery records so you can see the dragon names alongside the deliveries.",
+            "This is called a merge. It is like looking up a name in a directory using a reference code."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "In Excel, click the Data tab.",
+            "Click Get Data.",
+            "Hover over From File.",
+            "Click From Text/CSV.",
+            "Navigate to the folder: 01_source_data",
+            "Select the file: source_secondary.csv",
+            "Click Import.",
+            "Check the preview. The first row should show courier_id, courier_name, dragon_type and so on.",
+            "Click Transform Data.",
+            "Rename the query to: Dragons",
+            "Look at the row count at the bottom. You should see 20 rows.",
+            "Click Close and Load.",
+            "Rename the new sheet to: Courier Dragons"
+          ]
+        },
+        {
+          "type": "spot_the_pattern",
+          "items": [
+            "Once the Courier Dragons sheet has loaded, take a look at the active column.",
+            "Most dragons are marked Y — they are active.",
+            "But some are marked N — they are inactive.",
+            "How many inactive dragons can you find?",
+            "Does anything stand out about which dragons are inactive — do they share a license class or home base?",
+            "No need to do anything about it. Just notice the pattern."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Is there a sheet called Courier Dragons?",
+            "Does it show 20 rows?",
+            "Can you see the columns courier_id, courier_name and dragon_type?",
+            "Write the row count in your Inspection Notes sheet."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 5 — Import the Route Lookup PDF",
+      "intro": "In this mission, you are going to import the route classification reference table from a PDF file. Yes — Power Query can read PDFs too.",
+      "callouts": [
+        {
+          "type": "why_this_matters",
+          "items": [
+            "The route lookup table tells you what each route code means.",
+            "It also tells you how long deliveries on each route should take.",
+            "Later, when you merge this with the delivery data, you will be able to spot which routes are running over time."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "In Excel, click the Data tab.",
+            "Click Get Data.",
+            "Hover over From File.",
+            "Click From PDF.",
+            "Navigate to the folder: 01_source_data",
+            "Select the file: source_lookup.pdf",
+            "Click Import.",
+            "The Navigator window will appear.",
+            "Power Query may detect one or more tables inside the PDF.",
+            "Click on the table that shows route_code, route_name, zone, standard_days and priority_level.",
+            "A preview should appear showing six rows of route data.",
+            "Click Transform Data.",
+            "In Power Query Editor, check the first row. It should contain the column headers.",
+            "If the first row shows actual headers like route_code, that is correct.",
+            "If the first row shows Column1, Column2 and so on, the headers were not detected automatically.",
+            "To fix this: go to the Home tab in Power Query Editor and click Use First Row as Headers.",
+            "Rename the query to: Route_Lookup",
+            "Click Close and Load.",
+            "Rename the new sheet to: Route Lookup"
+          ]
+        },
+        {
+          "type": "common_trap",
+          "items": [
+            "PDFs do not always import perfectly. Power Query may detect extra blank rows or split a table across multiple items in the Navigator.",
+            "If you see blank rows at the top of the preview, you may need to click Use First Row as Headers after loading.",
+            "If Power Query shows Column1, Column2 instead of real names, click Home > Use First Row as Headers.",
+            "If yours looks a little different from what is described, do not panic. Use Undo and try again.",
+            "You can also check your result against the completed reference file: 02_workbook_data/workbook1_complete.xlsx"
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Is there a sheet called Route Lookup?",
+            "Does it show exactly 6 rows — one for each route from R01 to R06?",
+            "Are the column names route_code, route_name, zone, standard_days and priority_level?",
+            "Write the row count in your Inspection Notes sheet."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 6 — Check Headers and Row Counts",
+      "intro": "In this mission, you are going to do a quick check across all four sheets to confirm that the imports look right.",
+      "callouts": [
+        {
+          "type": "try_this",
+          "items": [
+            "Open your Inspection Notes sheet in 02_workbook_data/workbook1_start.xlsx.",
+            "For each file, fill in the Total Rows, Columns and Observations columns.",
+            "You can check row counts by clicking on the sheet and looking at the last row number.",
+            "For example, if the data goes from row 2 to row 42, there are 41 rows of data (row 1 is the header).",
+            "Expected row counts:",
+            "  source_primary.xlsx — 41 rows (including one duplicate)",
+            "  source_append.csv — 10 rows",
+            "  source_secondary.csv — 20 rows",
+            "  source_lookup.pdf — 6 rows",
+            "Write your notes in the Observations column.",
+            "You do not need to write a long paragraph — a few words are fine."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Have you filled in all four rows of the Inspection Notes sheet?",
+            "Do your row counts match the expected numbers?",
+            "If your row count for source_primary.xlsx is 40 instead of 41, that is also fine — it may mean Power Query has already detected the header row correctly.",
+            "Check your results against: 02_workbook_data/workbook1_complete.xlsx"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 7 — Spot Simple Patterns",
+      "intro": "In this mission, you are going to take a first look at the data and notice anything that stands out. You are not fixing anything yet. You are just being curious.",
+      "callouts": [
+        {
+          "type": "spot_the_pattern",
+          "items": [
+            "Look at the Deliveries sheet (from source_primary.xlsx).",
+            "QUESTION 1: Which status value appears most often — Delivered, Delayed or In Transit?",
+            "QUESTION 2: Look at the status column carefully. Do all the Delivered entries look exactly the same? Or are some written differently?",
+            "QUESTION 3: Look at the parcel_type column. Do all the Standard entries look exactly the same?",
+            "QUESTION 4: Look at the weight_kg column. Are there any values that look unusually high compared to the others?",
+            "QUESTION 5: Look at the route_code column. Are all route codes in the format R01, R02 and so on? Do any look different?",
+            "QUESTION 6: Look at the courier_id column. Can you spot any values where there might be extra spaces?",
+            "No need to fix these yet. Write your observations in the Inspection Notes sheet.",
+            "A pattern is a clue, not a problem."
+          ]
+        },
+        {
+          "type": "tiny_challenge",
+          "items": [
+            "Can you find the delivery record with a weight_kg value of 999?",
+            "What is its delivery_id?",
+            "What route was it on?",
+            "Does that weight value seem right to you?",
+            "Write a note in your Inspection Notes sheet."
+          ]
+        },
+        {
+          "type": "nice_work",
+          "items": [
+            "You have now imported all four source files and taken a first look at each one.",
+            "You have found some patterns in the data — and that is exactly what a good data technician does.",
+            "In Workbook 2, you will start cleaning and standardising the data using Power Query.",
+            "Save your file now as 02_workbook_data/workbook1_start.xlsx and keep it handy for reference."
+          ]
+        }
+      ]
+    }
+  ],
+  "closing": {
+    "heading": "What You Can Now Do",
+    "subheading": "Great work. Here is what you have achieved in Workbook 1.",
+    "outcomes": [
+      "Import an Excel file using Data > Get Data > From File > From Workbook",
+      "Import a CSV file using Data > Get Data > From File > From Text/CSV",
+      "Import a PDF table using Data > Get Data > From File > From PDF",
+      "Name your queries clearly in Power Query Editor",
+      "Rename sheets after loading",
+      "Check row counts and column names",
+      "Fill in an Inspection Notes sheet",
+      "Spot simple patterns in raw data"
+    ],
+    "next_step": "Open 02_workbook_data/workbook2_start.xlsx to begin Workbook 2: Power Query Cleaning Toolkit."
+  }
+}

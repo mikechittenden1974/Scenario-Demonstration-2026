@@ -1,0 +1,21 @@
+courier_id,courier_name,dragon_type,home_base,max_weight_kg,license_class,active
+DRG-01,Flambert Ashwing,Fire Drake,Northern Depot,50.0,Class A,Y
+DRG-02,Pebblescale Munt,Stone Wyrm,Eastern Hub,80.0,Class B,Y
+DRG-03,Zippety Cloudfang,Sky Serpent,Central Base,30.0,Class A,Y
+DRG-04,Grumblor Soot,Coal Dragon,Western Outpost,60.0,Class B,N
+DRG-05,Misty Frostclaw,Ice Wyvern,Northern Depot,25.0,Class A,Y
+DRG-06,Thornback Ridgewing,Ridge Glider,Southern Base,45.0,Class C,Y
+DRG-07,Bumble Sparktail,Spark Dragon,Central Base,35.0,Class A,Y
+DRG-08,Crispy Nettlefang,Ember Wyvern,Eastern Hub,55.0,Class B,Y
+DRG-09,Whoosh Galewing,Gale Serpent,Northern Depot,20.0,Class A,Y
+DRG-10,Dredge Muddyscale,Mud Drake,Western Outpost,70.0,Class C,N
+DRG-11,Fleck Ironjaw,Iron Wyrm,Eastern Hub,65.0,Class B,Y
+DRG-12,Glimmer Brightfang,Light Dragon,Southern Base,28.0,Class A,Y
+DRG-13,Snorkel Puddle,Water Drake,Central Base,40.0,Class B,Y
+DRG-14,Rumble Ashclaw,Ash Glider,Northern Depot,32.0,Class A,Y
+DRG-15,Pringle Mistscale,Mist Wyvern,Eastern Hub,22.0,Class A,Y
+DRG-16,Clomp Stoneback,Boulder Drake,Western Outpost,90.0,Class C,N
+DRG-17,Flitter Goldwing,Gilded Serpent,Southern Base,18.0,Class A,Y
+DRG-18,Grumps Darkfang,Shadow Wyrm,Central Base,48.0,Class B,Y
+DRG-19,Squeak Cloudpuff,Cloud Dragon,Northern Depot,26.0,Class A,Y
+DRG-22,Wobble Brightwing,Solar Wyvern,Eastern Hub,30.0,Class A,Y

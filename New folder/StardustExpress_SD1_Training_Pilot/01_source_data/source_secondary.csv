@@ -1,0 +1,19 @@
+courier_id,courier_name,ship_class,home_station,years_service
+C001,Vela Brightwing,Skipper-IV,Hopper Station,6
+C002,Orin Pulsar,Skipper-IV,Hopper Station,4
+C003, Mira Lensky,Cruiser-II,Tinwheel Outpost,9
+C004,Joss Quenby,skipper-iv,Hopper Station,2
+C005,Tabby Vorn,Cruiser-II, Tinwheel Outpost,11
+C006,Hanno Spillet,Skipper-IV,Hopper Station,3
+C007,Lupa Ren,Hauler-IX,Big Joe Drydock,7
+C008,Ess Tarrow,Hauler-IX,Big Joe Drydock,5
+C009,Jin Marble,Skipper-IV,Hopper Station,1
+C010,Pip Quasar,Skipper-IV,Hopper Station,0
+C011,Captain Nova Hartwell,Cruiser-II,Hopper Station,12
+C012,Glim Bracket,Hauler-IX,Hopper Station,14
+C013,Ovi Strand,Skipper-IV,Tinwheel Outpost,2
+C014,Quill Fennick,cruiser-II,Big Joe Drydock,8
+C015,Roo Plimm,Skipper-IV,Hopper Station,3
+C016,Sten Vasco,Hauler-IX,,4
+C017,Una Gribb,Skipper-IV,Hopper Station,1
+C018,Wex Larksby,Cruiser-II,Tinwheel Outpost,6

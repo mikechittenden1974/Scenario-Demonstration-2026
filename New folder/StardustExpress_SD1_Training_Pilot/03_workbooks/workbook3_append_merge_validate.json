@@ -1,0 +1,587 @@
+{
+  "cover": {
+    "brand": "Stardust Express",
+    "programme": "Level 3 Data Technician - SD1 Training Pilot",
+    "workbook_number": "Workbook 3",
+    "title": "Append, Merge and Validate",
+    "strapline": "Bring the tables together, then check that the result makes sense."
+  },
+  "snapshot": {
+    "difficulty": "4 / 10",
+    "estimated_time": "60 minutes"
+  },
+  "resources": {
+    "start_file": "02_workbook_data/workbook3_start.xlsx",
+    "complete_file": "02_workbook_data/workbook3_complete.xlsx",
+    "source_files_required": [
+      "02_workbook_data/workbook3_start.xlsx"
+    ]
+  },
+  "team_note": {
+    "speaker": "Glim Bracket, Quartermaster",
+    "message": "Append adds rows underneath. Merge adds columns alongside. If you remember that one sentence, the rest of this workbook will feel much friendlier. The final tidy table goes to me, so take your time."
+  },
+  "mission_brief": [
+    "Your tidy tables from Workbook 2 are already loaded for you in 02_workbook_data/workbook3_start.xlsx.",
+    "In this workbook you will append the late deliveries onto the main deliveries.",
+    "Then you will merge the route lookup and the courier details into the appended table.",
+    "Then you will validate the result and save 02_workbook_data/sd1_complete.xlsx for Glim."
+  ],
+  "why_this_matters": [
+    "Combining tables is where data from different systems finally tells one story.",
+    "If the row counts after an append do not match what you expected, the answer to your business question will be wrong.",
+    "Validating before you hand over the final file is what keeps the team's trust in the data."
+  ],
+  "learning_outcomes": {
+    "skills": [
+      "S4 - Combine data from multiple sources.",
+      "S5 - Identify and resolve data quality issues.",
+      "S6 - Identify, analyse and interpret data."
+    ],
+    "knowledge": [
+      "K7 - The principles of data analysis.",
+      "K8 - Data structures and database systems.",
+      "K11 - Data cleaning, transformation and preparation."
+    ],
+    "behaviours": [
+      "B2 - Logical and analytical thinking.",
+      "B3 - Work with others to deliver results.",
+      "B4 - Take responsibility, working safely and securely."
+    ],
+    "plain_english": "By the end of this workbook you will be able to append two tables of the same shape, merge related tables using a Left Join, validate the result, and produce a clean final output."
+  },
+  "sections": [
+    {
+      "kind": "lesson_intro",
+      "heading": "Append vs Merge - the one-sentence rule",
+      "body": [
+        "Append stacks rows from matching structures underneath each other. The number of rows grows.",
+        "Merge brings columns from one table alongside another. The number of columns grows.",
+        "We append when two tables look the same and we want one taller table.",
+        "We merge when two tables look different and we want to add detail using a shared key."
+      ]
+    },
+    {
+      "kind": "glossary",
+      "heading": "Words you will meet in this workbook",
+      "items": [
+        {
+          "term": "Append",
+          "definition": "Stacks the rows of one table underneath another. Both tables need the same column names."
+        },
+        {
+          "term": "Merge",
+          "definition": "Brings columns from one table into another. Uses a key column to match the rows."
+        },
+        {
+          "term": "Left Join",
+          "definition": "Keep every row from the left table. Add matching information from the right table where it exists. Where it does not, leave the new columns blank for that row."
+        },
+        {
+          "term": "Inner Join",
+          "definition": "Keep only the rows where the key matches in both tables."
+        },
+        {
+          "term": "Unmatched record",
+          "definition": "A row whose key value does not exist in the other table. Worth investigating, not deleting."
+        },
+        {
+          "term": "Validation",
+          "definition": "A calm check that the result of your work makes sense. Row counts, blanks, unmatched records."
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 1 - Understand append versus merge",
+      "intro": "Before clicking anything, it helps to be sure which tool to use when. This is a thinking-only mission. No clicks required.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Read the two short examples below.",
+            "Decide which one is an append and which one is a merge.",
+            "Then carry on to Mission 2."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. Read Example A in the worked example below.",
+            "Step 2. Decide in your own head whether this is an append or a merge.",
+            "Step 3. Read Example B.",
+            "Step 4. Decide in your own head whether this is an append or a merge.",
+            "Step 5. Check your answers against the two final lines of the worked example."
+          ]
+        },
+        {
+          "type": "worked_example",
+          "items": [
+            "Example A. The Deliveries table has 40 rows. The AppendDeliveries table has 12 rows with the same columns. We want one combined deliveries table with all 52 rows.",
+            "Example B. The Deliveries table has a column called route_code. The Routes table has route_code plus route_name and sector. We want to add route_name and sector into the Deliveries table.",
+            "Example A is an append - we are adding rows.",
+            "Example B is a merge - we are adding columns."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Could you say in your own words why Example A is an append and Example B is a merge?",
+            "If yes, you are ready for Mission 2."
+          ]
+        },
+        {
+          "type": "nice_work",
+          "items": [
+            "You have the one-sentence rule. The rest of this workbook is mostly clicks."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 2 - Open the workbook and reopen Power Query safely",
+      "intro": "Get back into the Power Query Editor on the cleaned tables.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Open 02_workbook_data/workbook3_start.xlsx.",
+            "Reopen the Deliveries_clean query in the Power Query Editor."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. Open Excel and open 02_workbook_data/workbook3_start.xlsx.",
+            "Step 2. Save a working copy as workbook3_start_yourname.xlsx so the original stays safe.",
+            "Power Query should still be available from your previous work.",
+            "If Power Query Editor is already open, continue from the open window.",
+            "If Power Query Editor is not open:",
+            "  Step 3a. Click the Data tab.",
+            "  Step 3b. Click Queries & Connections.",
+            "  Step 3c. Find the query named Deliveries_clean.",
+            "  Step 3d. Double-click the query name. The Power Query Editor opens.",
+            "If the query is missing:",
+            "  Step 3e. Click Data > Get Data > From File > From Excel Workbook.",
+            "  Step 3f. Select 02_workbook_data/workbook3_start.xlsx.",
+            "  Step 3g. In Navigator, choose the Deliveries_clean sheet, then click Transform Data."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "You should see four queries in the Queries pane on the left: Deliveries_clean, AppendDeliveries_clean, Couriers_clean, Routes_clean.",
+            "If any are missing, use the If the query is missing steps above to reimport from 02_workbook_data/workbook3_start.xlsx."
+          ]
+        },
+        {
+          "type": "nice_work",
+          "items": [
+            "All four queries open and ready. Time to combine them."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 3 - Append the late deliveries onto the main deliveries",
+      "intro": "You will create a new query called Deliveries_all that combines Deliveries_clean and AppendDeliveries_clean.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Use Append Queries As New to create a single combined deliveries table.",
+            "Name the new query Deliveries_all."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. In the Power Query Editor, click the Deliveries_clean query on the left to make it active.",
+            "Step 2. Click the Home tab.",
+            "Step 3. Click the small arrow next to Append Queries.",
+            "Step 4. Choose Append Queries as New.",
+            "Step 5. In the Append window, choose Two tables.",
+            "Step 6. The First table should already be Deliveries_clean. Set the Second table to AppendDeliveries_clean.",
+            "Step 7. Click OK. A new query called Append1 appears on the left.",
+            "Step 8. Right-click Append1, choose Rename, and rename it to Deliveries_all."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Click Deliveries_all on the left. The preview should show the same seven columns as Deliveries_clean.",
+            "Look at the bottom of the editor. It should show 52 rows.",
+            "If yours looks different, do not panic. Use Undo and try Steps 3 to 8 again."
+          ]
+        },
+        {
+          "type": "common_trap",
+          "items": [
+            "If you choose Append Queries (without As New), Power Query adds an Appended Query step to the active query instead of creating a new one. Both work - but As New is tidier because the original Deliveries_clean stays untouched."
+          ]
+        },
+        {
+          "type": "nice_work",
+          "items": [
+            "Append done. The deliveries are all in one tidy place."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 4 - Check the row count after the append",
+      "intro": "Quick sanity check. The arithmetic should be obvious. If it is not, something has gone sideways.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Confirm Deliveries_all has 52 rows.",
+            "Note the count on the Validation Notes sheet inside 02_workbook_data/workbook3_start.xlsx."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. Click Deliveries_all on the left.",
+            "Step 2. Look at the row count text at the bottom of the editor (it usually reads something like 52 rows).",
+            "Step 3. If the count text is not visible, click View > Column Profile and choose 'Column profiling based on entire data set' from the bottom-left status bar.",
+            "Step 4. Confirm 40 (Deliveries_clean) + 12 (AppendDeliveries_clean) = 52."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "If your count is 52 - perfect.",
+            "If your count is 40, only Deliveries_clean was used. Repeat Mission 3.",
+            "If your count is 12, only AppendDeliveries_clean was used. Repeat Mission 3.",
+            "Mistakes are normal. Use Undo and try again."
+          ]
+        },
+        {
+          "type": "spot_the_pattern",
+          "items": [
+            "Did the append add the expected number of rows?",
+            "If not, the answer is in Applied Steps - have a look at what happened on the way."
+          ]
+        },
+        {
+          "type": "nice_work",
+          "items": [
+            "Row count confirmed. That is the most important check on this page."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 5 - Merge the route lookup into Deliveries_all",
+      "intro": "Now you will add route_name, sector and distance_lightyears to every row using a Left Join.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Merge Deliveries_all with Routes_clean on route_code using a Left Outer join.",
+            "Expand the new columns: route_name, sector, distance_lightyears."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. Click Deliveries_all on the left to make it active.",
+            "Step 2. Click the Home tab.",
+            "Step 3. Click Merge Queries (not Merge Queries as New). A Merge window appears.",
+            "Step 4. The top table is Deliveries_all. Click the route_code column header in this top table.",
+            "Step 5. Below, choose Routes_clean from the dropdown. Click the route_code column header in this lower table.",
+            "Step 6. In the Join Kind dropdown, choose Left Outer (all from first, matching from second).",
+            "Step 7. Look at the small message at the bottom of the window. It should say something like '52 rows from Deliveries_all match 51 rows from Routes_clean'. The 1 row that does not match is fine - that is your unmatched record.",
+            "Step 8. Click OK.",
+            "Step 9. A new column called Routes_clean appears on the right. Click the small expand icon (two arrows) at the right of its header.",
+            "Step 10. Untick Use original column name as prefix.",
+            "Step 11. Tick route_name, sector and distance_lightyears. Untick route_code (you already have it).",
+            "Step 12. Click OK. Three new columns appear."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Deliveries_all should still have 52 rows.",
+            "It should now have three new columns: route_name, sector, distance_lightyears.",
+            "One row (delivery_id SE-022, route_code R06) should have blank values in those new columns."
+          ]
+        },
+        {
+          "type": "spot_the_pattern",
+          "items": [
+            "Did any rows fail to match? Yes - one.",
+            "The unmatched route_code is R06. The lookup PDF only listed R01 to R05, R07 and R08.",
+            "Is R06 a typing error, a new route or a route that was retired? That is for the team to decide.",
+            "An unmatched record is a clue, not a failure."
+          ]
+        },
+        {
+          "type": "common_trap",
+          "items": [
+            "If you choose Inner Join by mistake, the row for SE-022 will disappear and Deliveries_all will drop to 51 rows. That hides a problem rather than flagging it. Use Left Outer to keep every delivery visible."
+          ]
+        },
+        {
+          "type": "nice_work",
+          "items": [
+            "Routes merged in. Each delivery now knows its sector and distance."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 6 - Merge the courier details into Deliveries_all",
+      "intro": "Now do the same trick for couriers, joining on courier_id.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Merge Deliveries_all with Couriers_clean on courier_id using a Left Outer join.",
+            "Expand the new columns: courier_name, ship_class, home_station."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. With Deliveries_all still active, click the Home tab.",
+            "Step 2. Click Merge Queries.",
+            "Step 3. In the top half of the Merge window, click the courier_id column in Deliveries_all.",
+            "Step 4. Below, choose Couriers_clean from the dropdown. Click the courier_id column.",
+            "Step 5. Choose Left Outer from the Join Kind dropdown.",
+            "Step 6. The match message at the bottom should read something like '52 rows from Deliveries_all match 51 rows from Couriers_clean'.",
+            "Step 7. Click OK.",
+            "Step 8. A new column called Couriers_clean appears. Click its expand icon.",
+            "Step 9. Untick Use original column name as prefix.",
+            "Step 10. Tick courier_name, ship_class, home_station. Untick courier_id and years_service.",
+            "Step 11. Click OK."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Deliveries_all should still have 52 rows.",
+            "It should now have three more new columns: courier_name, ship_class, home_station.",
+            "One row (delivery_id SE-034, courier_id C99) should have blank values in those new columns.",
+            "If yours looks different, do not panic. Click the offending Applied Step and check the join settings."
+          ]
+        },
+        {
+          "type": "spot_the_pattern",
+          "items": [
+            "Two unmatched rows in total - one route, one courier.",
+            "Both unmatched values look like data entry oddities (R06 and C99).",
+            "Worth a friendly chat with the dispatch team next quarter."
+          ]
+        },
+        {
+          "type": "nice_work",
+          "items": [
+            "Couriers merged. Deliveries_all is now a small but mighty single table."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 7 - Tidy the column order",
+      "intro": "Optional but pleasing. Put the columns in a logical order so the final table is easy to read.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Reorder the columns in Deliveries_all so the original delivery columns come first, then the route information, then the courier information."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. With Deliveries_all open, click and drag column headers to put them in this order: delivery_id, delivery_date, route_code, courier_id, parcel_type, weight_kg, status, route_name, sector, distance_lightyears, courier_name, ship_class, home_station.",
+            "Step 2. If dragging is fiddly, click a column header to select it, then click Transform > Move > To Beginning, To End, Left or Right as needed."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "The first seven columns should match the original Deliveries columns.",
+            "The middle three should be from Routes.",
+            "The last three should be from Couriers."
+          ]
+        },
+        {
+          "type": "nice_work",
+          "items": [
+            "Tidy and pleasing. Glim is going to nod approvingly."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 8 - Validate the final result",
+      "intro": "Calm, careful checks before you publish anything.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Confirm row count, blanks and unmatched records on the Deliveries_all query.",
+            "Write what you find on the Validation Notes sheet inside 02_workbook_data/workbook3_start.xlsx."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. Confirm the row count is still 52.",
+            "Step 2. Click View and tick Column Quality and Column Distribution if they are not on already.",
+            "Step 3. Look at route_name. The Empty bar should show roughly 2% (1 row of 52). That is the unmatched route.",
+            "Step 4. Look at courier_name. The Empty bar should show roughly 2% (1 row of 52). That is the unmatched courier.",
+            "Step 5. Look at the other columns. None of them should have new blanks unless they came in that way from the source.",
+            "Step 6. Open 02_workbook_data/workbook3_start.xlsx > Validation Notes sheet and answer each prompt."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Row count: 52.",
+            "Unmatched route count: 1 (SE-022).",
+            "Unmatched courier count: 1 (SE-034).",
+            "If anything else is blank that should not be, check Applied Steps and trace it back."
+          ]
+        },
+        {
+          "type": "spot_the_pattern",
+          "items": [
+            "Did the append add the expected number of rows? Yes - 12 added to 40 gave 52.",
+            "Do the unmatched rows have anything in common? Both look like data entry oddities (R06, C99).",
+            "Did blank values appear only after merging? Yes - in route_name, sector, distance_lightyears, courier_name, ship_class, home_station.",
+            "Does one route_name appear far more than the others? Yes - Tinwheel Express (R02) is the busiest route this quarter."
+          ]
+        },
+        {
+          "type": "nice_work",
+          "items": [
+            "The numbers add up. The blanks are explained. The team can trust this table."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 9 - Load and visually check with conditional formatting",
+      "intro": "Push the final query back to the workbook and use Excel's worksheet tools for a quick visual review.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Use Close & Load To to load Deliveries_all to a new sheet as a Table.",
+            "Apply conditional formatting to highlight blank route_name and courier_name cells."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. With Deliveries_all selected on the left, click File > Close & Load To.",
+            "Step 2. In the Import Data window, choose Table and New worksheet, then click OK.",
+            "Step 3. The new sheet appears with all 52 rows. Rename the sheet to Deliveries_full.",
+            "Step 4. Click any cell in the route_name column (column H).",
+            "Step 5. Select the entire route_name column data range (from row 2 to row 53).",
+            "Step 6. Click Home > Conditional Formatting > Highlight Cells Rules > More Rules.",
+            "Step 7. Choose 'Format only cells that contain', set the condition to 'Blanks', and click Format > Fill, pick a soft red, then click OK twice.",
+            "Step 8. Repeat Steps 4 to 7 for the courier_name column (column K)."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "One cell in route_name should be highlighted (the row for SE-022).",
+            "One cell in courier_name should be highlighted (the row for SE-034).",
+            "If more cells are highlighted than expected, scroll to the highlighted rows and investigate."
+          ]
+        },
+        {
+          "type": "common_trap",
+          "items": [
+            "Conditional formatting works on what is in the cells right now. If you refresh the query and new data arrives, it will adjust automatically as long as the data stays inside the same Table."
+          ]
+        },
+        {
+          "type": "nice_work",
+          "items": [
+            "The unmatched rows are now visually obvious. Anyone glancing at this sheet will see them in seconds."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 10 - Save the final tidy output as sd1_complete.xlsx",
+      "intro": "Hand the finished file to Glim by saving it under the agreed name.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Save a copy of the workbook as 02_workbook_data/sd1_complete.xlsx.",
+            "This becomes the official SD1 final output."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. With your finished workbook open, click File > Save As.",
+            "Step 2. Browse to the 02_workbook_data folder.",
+            "Step 3. In the File name box, type sd1_complete and choose Excel Workbook (*.xlsx) as the type.",
+            "Step 4. Click Save.",
+            "Step 5. Compare your file with 02_workbook_data/sd1_complete.xlsx (the example provided). The Deliveries_full sheet should match in row count and column order."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Your sd1_complete.xlsx should contain at least one sheet called Deliveries_full with 52 rows.",
+            "If you also kept the Validation Notes sheet, all the better.",
+            "If yours looks different, no panic - Save As again with a fresh name and have one more go."
+          ]
+        },
+        {
+          "type": "you_are_developing",
+          "items": [
+            "S4 - You combined data from multiple sources.",
+            "S5 - You investigated unmatched records calmly.",
+            "S6 - You interpreted what the data was telling you.",
+            "K7 - You used analysis principles to question the data.",
+            "K8 - You worked across structured tables.",
+            "K11 - You completed a full clean-and-combine workflow.",
+            "B2 - You worked logically.",
+            "B3 - You delivered a result for the team.",
+            "B4 - You took responsibility for the final output."
+          ]
+        },
+        {
+          "type": "nice_work",
+          "items": [
+            "Mission complete. The Stardust Express crew can plan the next resupply with confidence. Excellent work, apprentice."
+          ]
+        }
+      ]
+    }
+  ],
+  "closing": {
+    "heading": "What you can now do",
+    "subheading": "Tick the things that feel true. The rest will firm up with practice.",
+    "outcomes": [
+      "I can explain the difference between an append and a merge in one sentence.",
+      "I can append two tables of the same shape using Power Query.",
+      "I can merge two tables using a Left Join and expand the new columns.",
+      "I can validate a combined table by checking row counts, blanks and unmatched records.",
+      "I can load a final query back to Excel and apply conditional formatting for a visual check.",
+      "I can save a final tidy output for the team using a clear file name."
+    ],
+    "next_step": "Open 02_workbook_data/sd1_complete.xlsx and admire the calm, tidy table you just produced. The SD1 Training Pilot is complete."
+  }
+}

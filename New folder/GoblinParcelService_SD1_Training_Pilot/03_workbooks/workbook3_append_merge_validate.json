@@ -1,0 +1,625 @@
+{
+  "cover": {
+    "brand": "Goblin Parcel Service — SD1 Training Pilot",
+    "programme": "Level 3 Data Technician Apprenticeship",
+    "workbook_number": "Workbook 3 of 3",
+    "title": "Append, Merge and Validate",
+    "strapline": "Stack the rows, add the columns, check the result."
+  },
+  "snapshot": {
+    "difficulty": "4 out of 10",
+    "estimated_time": "60 minutes"
+  },
+  "resources": {
+    "start_file": "02_workbook_data/workbook3_start.xlsx",
+    "complete_file": "02_workbook_data/workbook3_complete.xlsx",
+    "source_files_required": [
+      "02_workbook_data/workbook3_start.xlsx"
+    ]
+  },
+  "team_note": {
+    "speaker": "Munko Flysworth, Route Analyst",
+    "message": "This is the big one. In Workbook 2, we cleaned the data. Now we are going to combine it. First we will stack the January-February records with the March records — that is the append. Then we will add route details and dragon names — those are the merges. Finally, we will check everything is correct before loading the clean output. Splink has the kettle on. Let us get started."
+  },
+  "mission_brief": [
+    "In this workbook, you are going to combine the cleaned delivery data with the route lookup and dragon details.",
+    "You will append the cleaned January-February records with the March records.",
+    "You will then merge in the route classification data and the courier dragon details.",
+    "Finally, you will validate the result and save the clean output as 02_workbook_data/sd1_complete.xlsx.",
+    "Your start file is: 02_workbook_data/workbook3_start.xlsx",
+    "Your complete reference file is: 02_workbook_data/workbook3_complete.xlsx",
+    "Your final clean output file is: 02_workbook_data/sd1_complete.xlsx"
+  ],
+  "why_this_matters": [
+    "The GPS delivery data is currently split across two files — January-February and March.",
+    "To answer the business question, you need all deliveries in one table.",
+    "An append stacks the March rows underneath the January-February rows.",
+    "A merge adds route and dragon information as new columns.",
+    "Validation checks that the result is complete and correct before it goes to the board."
+  ],
+  "learning_outcomes": {
+    "skills": [
+      "S4 — Use Power Query to append similar data tables",
+      "S5 — Use Power Query to merge related tables using a key column",
+      "S6 — Validate a final dataset by checking row counts, blanks and unmatched records"
+    ],
+    "knowledge": [
+      "K7 — Understand the difference between an append and a merge",
+      "K8 — Understand how a left join preserves all rows from the main table",
+      "K11 — Understand how to check row counts before and after combining data"
+    ],
+    "behaviours": [
+      "B2 — Approach validation as a confirmation step, not an obstacle",
+      "B3 — Record findings clearly in a validation notes sheet",
+      "B4 — Complete each step fully before moving to the next"
+    ],
+    "plain_english": "By the end of this workbook, you will have one clean, combined dataset saved as 02_workbook_data/sd1_complete.xlsx — ready for reporting."
+  },
+  "sections": [
+    {
+      "kind": "lesson_intro",
+      "heading": "Append Versus Merge — What Is the Difference?",
+      "body": [
+        "Before you start combining data, it helps to be clear about the two different ways of combining tables.",
+        "",
+        "AN APPEND adds rows.",
+        "You use an append when you have two tables with the same columns and you want to stack one on top of the other.",
+        "Think of it like adding more sheets to a pile.",
+        "Example: January-February deliveries + March deliveries = all deliveries in one table.",
+        "",
+        "A MERGE adds columns.",
+        "You use a merge when you have two tables with different columns and you want to bring columns from one table into the other.",
+        "You match rows between the tables using a key column.",
+        "Think of it like looking up extra details in a reference book.",
+        "Example: delivery records + route lookup = delivery records with route names and zones added.",
+        "",
+        "In this workbook, you will do both:",
+        "First an append — to combine the two sets of delivery records.",
+        "Then two merges — to add route details and dragon details."
+      ]
+    },
+    {
+      "kind": "glossary",
+      "heading": "Key Terms for This Workbook",
+      "items": [
+        {
+          "term": "Append",
+          "definition": "Stacks rows from one table underneath rows from another table. Both tables must have the same column structure. The result has more rows but the same columns."
+        },
+        {
+          "term": "Merge",
+          "definition": "Joins two tables by matching rows using a key column. The result adds new columns from the second table to the first."
+        },
+        {
+          "term": "Left join",
+          "definition": "A type of merge that keeps all rows from the main (left) table, even if there is no matching row in the second (right) table. Unmatched rows show blank values in the new columns."
+        },
+        {
+          "term": "Inner join",
+          "definition": "A type of merge that keeps only rows that have a match in both tables. Unmatched rows are removed."
+        },
+        {
+          "term": "Unmatched record",
+          "definition": "A row in the main table that has no matching row in the second table. In a left join, it is kept. In an inner join, it is removed."
+        },
+        {
+          "term": "Expand",
+          "definition": "After a merge, the new column appears as a table object. Expanding it means choosing which sub-columns to show as normal columns."
+        },
+        {
+          "term": "Row count",
+          "definition": "The number of rows in a table. Checking the row count before and after combining data confirms the operation worked correctly."
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 1 — Open the Start Workbook and Reopen Power Query",
+      "intro": "In this mission, you are going to open 02_workbook_data/workbook3_start.xlsx and confirm that your cleaned queries are available in Power Query.",
+      "callouts": [
+        {
+          "type": "try_this",
+          "items": [
+            "Open File Explorer and navigate to 02_workbook_data",
+            "Open the file: workbook3_start.xlsx",
+            "You should see the following sheets: START HERE, Deliveries_Cleaned, March_Clean, Dragons_Clean, Route_Lookup, Validation Notes.",
+            "Now open Power Query to check the queries are available.",
+            "Power Query should still be available from your previous work.",
+            "If Power Query Editor is not already open:",
+            "  1. Click the Data tab in Excel.",
+            "  2. Click Queries and Connections.",
+            "  3. A panel will appear on the right side of the screen.",
+            "  4. Find the query named Deliveries_Primary in the list.",
+            "  5. Double-click the query name.",
+            "  6. Power Query Editor will open.",
+            "If the query is missing:",
+            "  1. Click the Data tab.",
+            "  2. Click Get Data > From File > From Workbook.",
+            "  3. Navigate to 02_workbook_data and open workbook3_start.xlsx.",
+            "  4. In the Navigator window, select the Deliveries_Cleaned table.",
+            "  5. Click Transform Data.",
+            "  6. Rename the query to Deliveries_Primary."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Can you see the Deliveries_Cleaned sheet with 40 rows of data?",
+            "Can you see the March_Clean sheet with 10 rows?",
+            "Can you see the Dragons_Clean sheet with 20 rows?",
+            "Can you see the Route_Lookup sheet with 6 rows?",
+            "Is Power Query Editor open with the Deliveries_Primary query visible?"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 2 — Import the March Records as a Second Query",
+      "intro": "In this mission, you are going to create a second Power Query query for the March delivery records. You will need both queries available before you can append them.",
+      "callouts": [
+        {
+          "type": "try_this",
+          "items": [
+            "In Power Query Editor, you need to add a second query for the March records.",
+            "Click the Home tab in Power Query Editor.",
+            "Click New Source.",
+            "Click File > Workbook (or Text/CSV if loading from the CSV).",
+            "Navigate to 01_source_data",
+            "Select source_append.csv",
+            "Click Import.",
+            "In the preview window, confirm the column names match the delivery data.",
+            "Click OK or Transform Data.",
+            "In the Queries panel on the left, rename this query to: Deliveries_Append",
+            "The Deliveries_Append query should show 10 rows.",
+            "Do not close Power Query yet — you will need both queries open for the append."
+          ]
+        },
+        {
+          "type": "common_trap",
+          "items": [
+            "Make sure both queries are visible in the Queries panel on the left side of Power Query Editor.",
+            "You should see: Deliveries_Primary and Deliveries_Append.",
+            "If you can only see one query, click New Source to add the second one.",
+            "Do not confuse New Source with Get Data in the main Excel ribbon — they are both valid entry points, but New Source is quicker when you are already inside Power Query Editor."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Can you see both Deliveries_Primary and Deliveries_Append in the Queries panel?",
+            "Does Deliveries_Primary show 40 rows?",
+            "Does Deliveries_Append show 10 rows?"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 3 — Append the Two Delivery Tables",
+      "intro": "In this mission, you are going to stack the January-February delivery records with the March records. This creates one combined delivery table with 50 rows.",
+      "callouts": [
+        {
+          "type": "why_this_matters",
+          "items": [
+            "An append stacks rows from one table underneath rows from another.",
+            "Both tables must have the same column names and structure.",
+            "The GPS January-February records and March records have the same ten columns.",
+            "After appending, you will have one table with all 50 deliveries."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "In Power Query Editor, make sure the Deliveries_Primary query is selected in the Queries panel.",
+            "Click the Home tab.",
+            "Click Append Queries.",
+            "A dialog will appear.",
+            "Make sure Two tables is selected.",
+            "In the Table to append dropdown, select: Deliveries_Append",
+            "Click OK.",
+            "Power Query will add the 10 March rows underneath the 40 January-February rows.",
+            "Look at the row count at the bottom of the editor.",
+            "You should now see 50 rows.",
+            "Check the Applied Steps panel — a new step called Appended Query should appear.",
+            "Scroll down to the bottom of the preview to confirm the GPS-041 to GPS-050 rows are there."
+          ]
+        },
+        {
+          "type": "worked_example",
+          "items": [
+            "EXAMPLE: What the append result should look like:",
+            "  Rows 1 to 40: GPS-001 to GPS-040 (January and February deliveries)",
+            "  Rows 41 to 50: GPS-041 to GPS-050 (March deliveries)",
+            "  Total: 50 rows",
+            "  Columns: same 10 columns as before — delivery_id, route_code, courier_id and so on"
+          ]
+        },
+        {
+          "type": "spot_the_pattern",
+          "items": [
+            "After the append, look at the route_code column.",
+            "Which route code appears most often across all 50 deliveries?",
+            "Do the March deliveries (GPS-041 to GPS-050) use the same routes as the January-February ones?",
+            "No need to calculate anything precisely. Just have a look.",
+            "A pattern is a clue, not a problem."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Is the row count now 50?",
+            "Can you see delivery IDs from GPS-001 all the way to GPS-050?",
+            "Does the Appended Query step appear in Applied Steps?",
+            "If your row count is wrong, check that you selected the correct query in the Append dialog."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 4 — Import the Route Lookup as a Connection-Only Query",
+      "intro": "Before you can merge route details into the delivery data, you need the route lookup available as a Power Query query. In this mission, you will import it as a connection-only query.",
+      "callouts": [
+        {
+          "type": "why_this_matters",
+          "items": [
+            "A connection-only query loads the data into Power Query's memory without creating a new sheet.",
+            "This is useful for reference tables that you only need for merging — not for displaying separately.",
+            "The route lookup has only 6 rows, so there is no need to show it on its own sheet."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "In Power Query Editor, click New Source.",
+            "Click File > PDF.",
+            "Navigate to 01_source_data",
+            "Select source_lookup.pdf",
+            "Click Import.",
+            "In the Navigator, select the table showing route_code, route_name, zone, standard_days and priority_level.",
+            "Click Transform Data.",
+            "Check that the first row shows column headers — not Column1, Column2.",
+            "If headers are missing, click Home > Use First Row as Headers.",
+            "Rename the query to: Route_Lookup",
+            "Click Home > Close and Load To.",
+            "In the Load To dialog:",
+            "  Select Only Create Connection.",
+            "  Make sure Load to worksheet is NOT ticked.",
+            "  Click OK.",
+            "The Route_Lookup query will now be available in Power Query but will not create a new sheet."
+          ]
+        },
+        {
+          "type": "common_trap",
+          "items": [
+            "If you click Close and Load (without To), Power Query will load the lookup to a new sheet.",
+            "That is not wrong — but it is tidier to use Only Create Connection for reference tables.",
+            "If you accidentally created a sheet, you can right-click the query in Queries and Connections, click Load To, and change the setting to Only Create Connection."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Is Route_Lookup visible in the Queries and Connections panel?",
+            "Does it say Connection only underneath it?",
+            "Is there no new Route Lookup sheet in the workbook?",
+            "Good — the lookup is ready to use in the merge."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 5 — Merge Route Details into the Delivery Table",
+      "intro": "In this mission, you are going to use a left join to add route name, zone, standard days and priority level to the combined delivery table.",
+      "callouts": [
+        {
+          "type": "why_this_matters",
+          "items": [
+            "Right now, the delivery table only has route codes like R01 and R02.",
+            "The board report needs to show what those codes mean — route names, zones and expected delivery times.",
+            "A left join matches each row in the delivery table to a row in the route lookup, using route_code as the key.",
+            "All 50 delivery rows are kept, even if a route code does not match — those rows will show blank in the new columns."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "In Power Query Editor, make sure the Deliveries_Primary query (with 50 appended rows) is selected.",
+            "Click the Home tab.",
+            "Click Merge Queries.",
+            "A dialog will appear with two table sections.",
+            "The top section shows your main table: Deliveries_Primary.",
+            "In the top section, click the route_code column header to select it as the join key.",
+            "In the dropdown below, select the second table: Route_Lookup",
+            "In the Route_Lookup preview that appears, click the route_code column header.",
+            "Look at the Join Kind dropdown at the bottom of the dialog.",
+            "Select: Left Outer (all from first, matching from second)",
+            "You will see a message showing how many rows will match.",
+            "Click OK.",
+            "A new column called Route_Lookup will appear at the right side of the preview.",
+            "Each cell in this column shows Table — this means the route details are nested inside.",
+            "You need to expand this column to see the individual fields."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "To expand the Route_Lookup column:",
+            "  1. Look at the Route_Lookup column header.",
+            "  2. You will see a small icon with two arrows pointing outwards.",
+            "  3. Click that icon.",
+            "  4. A list of sub-columns will appear: route_code, route_name, zone, standard_days, priority_level.",
+            "  5. Untick route_code — you do not need it again, it is already in the main table.",
+            "  6. Tick: route_name, zone, standard_days, priority_level",
+            "  7. Untick Use original column name as prefix if it is ticked.",
+            "  8. Click OK.",
+            "Four new columns will appear: route_name, zone, standard_days, priority_level.",
+            "Check the Applied Steps panel — you should see Merged Queries and Expanded Route_Lookup."
+          ]
+        },
+        {
+          "type": "spot_the_pattern",
+          "items": [
+            "After expanding, scroll down to find the row for GPS-030.",
+            "What do you notice about the route_name, zone and other new columns for that row?",
+            "They should be blank — because GPS-030 used route code R99, which does not exist in the lookup.",
+            "This is the unmatched record.",
+            "In a left join, unmatched records are kept but show blank values in the joined columns.",
+            "This is useful information — it tells us that GPS-030 was logged with an invalid route code."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Does the table now have 50 rows?",
+            "Can you see the new columns route_name, zone, standard_days and priority_level?",
+            "Is the row for GPS-030 showing blank values in those columns?",
+            "Are all other rows showing route names like Meadow Loop or Enchanted Forest Express?",
+            "If your row count has changed, check that you used Left Outer join — not Inner join."
+          ]
+        },
+        {
+          "type": "common_trap",
+          "items": [
+            "If you accidentally used an Inner join instead of a Left Outer join, the GPS-030 row will have been removed.",
+            "Your row count will be 49 instead of 50.",
+            "If this happened, look in the Applied Steps panel and delete the Merged Queries step.",
+            "Then redo the merge and select Left Outer from the Join Kind dropdown."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 6 — Import the Dragon Details and Merge",
+      "intro": "In this mission, you are going to add courier dragon details — name, type and home base — to the combined delivery table.",
+      "callouts": [
+        {
+          "type": "try_this",
+          "items": [
+            "First, add the dragon details as a connection-only query.",
+            "In Power Query Editor, click New Source.",
+            "Click File > Text/CSV.",
+            "Navigate to 01_source_data",
+            "Select source_secondary.csv",
+            "Click Import.",
+            "Rename the query to: Dragons",
+            "Click Home > Close and Load To > Only Create Connection.",
+            "Now merge the dragon details into the main delivery table.",
+            "Make sure the Deliveries_Primary query (now with 50 rows and route columns) is selected.",
+            "Click the Home tab.",
+            "Click Merge Queries.",
+            "In the top section, click the courier_id column header.",
+            "In the dropdown, select: Dragons",
+            "In the Dragons preview, click courier_id.",
+            "Set Join Kind to: Left Outer (all from first, matching from second)",
+            "Click OK.",
+            "A new column called Dragons will appear.",
+            "Click the expand icon on the Dragons column header.",
+            "Untick courier_id (already in the main table).",
+            "Tick: courier_name, dragon_type, home_base",
+            "Untick Use original column name as prefix.",
+            "Click OK.",
+            "Three new columns will appear: courier_name, dragon_type, home_base."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Does the table still have 50 rows?",
+            "Can you see the new columns courier_name, dragon_type and home_base?",
+            "Do the courier names look like real dragon names — for example Zippety Cloudfang or Bumble Sparktail?",
+            "If any rows show blank in courier_name, note the courier_id — it may not be in the dragon details file."
+          ]
+        },
+        {
+          "type": "spot_the_pattern",
+          "items": [
+            "After expanding the dragon details, look at the home_base column.",
+            "Which depot appears most often across all 50 deliveries?",
+            "This is the kind of pattern that could be useful in a performance report.",
+            "Do any rows show blank in courier_name? If so, which courier_id values are those?"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 7 — Validate the Final Result",
+      "intro": "In this mission, you are going to check the final combined table before loading it to Excel. Validation confirms the data is complete and the row counts are correct.",
+      "callouts": [
+        {
+          "type": "why_this_matters",
+          "items": [
+            "Before loading the final data, it is worth doing a quick check.",
+            "Validation catches problems early — before the data goes to a report.",
+            "It is not about finding every possible issue. It is about confirming the key things look right."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "In Power Query Editor, with the Deliveries_Primary query selected, check the following:",
+            "",
+            "CHECK 1 — Row count after append:",
+            "Look at the row count at the bottom of the editor.",
+            "It should be 50.",
+            "40 cleaned January-February rows plus 10 March rows equals 50.",
+            "",
+            "CHECK 2 — Row count after merges:",
+            "The row count should still be 50.",
+            "A left join should not change the row count — it only adds columns.",
+            "",
+            "CHECK 3 — Unmatched route codes:",
+            "Use the filter arrow on route_name.",
+            "Look for blank values.",
+            "You should find exactly 1 blank — the GPS-030 row using route code R99.",
+            "",
+            "CHECK 4 — Unmatched courier IDs:",
+            "Use the filter arrow on courier_name.",
+            "Look for blank values.",
+            "You should find 0 blanks — all courier IDs matched the dragon details.",
+            "",
+            "CHECK 5 — Blank weight_kg values:",
+            "Use the View tab to turn on Column Quality.",
+            "Check the weight_kg column.",
+            "You should see 2 empty values — GPS-029 and GPS-037.",
+            "These are expected and have been flagged using the weight_flag column from Workbook 2.",
+            "",
+            "Fill in the Validation Notes sheet in 02_workbook_data/workbook3_start.xlsx with your findings."
+          ]
+        },
+        {
+          "type": "spot_the_pattern",
+          "items": [
+            "Look at the rows where blank appears in route_name.",
+            "GPS-030 has route code R99.",
+            "Does GPS-030 share any pattern with the other GPS-030-range rows — same courier, same date, same parcel type?",
+            "Or does it look like a one-off data entry error?",
+            "Write your observation in the Validation Notes sheet.",
+            "You do not need to solve it. Just describe what you see."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Is the row count 50?",
+            "Is there exactly 1 unmatched route code (R99)?",
+            "Are there 0 unmatched courier IDs?",
+            "Are there 2 blank weight_kg values?",
+            "Have you filled in the Validation Notes sheet?",
+            "If any of these checks fail, look at the Applied Steps panel and check whether the correct join type was used."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 8 — Load the Final Output and Check with Conditional Formatting",
+      "intro": "In this mission, you are going to load the validated data to a sheet and use conditional formatting to highlight any remaining blank values visually.",
+      "callouts": [
+        {
+          "type": "try_this",
+          "items": [
+            "In Power Query Editor, with the Deliveries_Primary query selected:",
+            "Click the Home tab.",
+            "Click Close and Load To.",
+            "In the Load To dialog:",
+            "  Select Table.",
+            "  Select New Worksheet.",
+            "  Click OK.",
+            "Power Query will load the 50-row combined and merged table to a new sheet.",
+            "Rename the new sheet to: SD1_Output",
+            "Now apply conditional formatting to highlight blank cells:",
+            "  1. Select the entire data range on the SD1_Output sheet.",
+            "     Click the top-left cell of the data, then press Ctrl + Shift + End to select to the last cell.",
+            "  2. Click the Home tab in Excel.",
+            "  3. Click Conditional Formatting.",
+            "  4. Click New Rule.",
+            "  5. Select Format only cells that contain.",
+            "  6. In the dropdown, choose Blanks.",
+            "  7. Click Format.",
+            "  8. Choose a light yellow fill colour.",
+            "  9. Click OK, then OK again.",
+            "Any blank cells in the table will now be highlighted in yellow.",
+            "Check that the GPS-030 row has yellow cells in the route_name, zone, standard_days and priority_level columns.",
+            "Check that the GPS-029 and GPS-037 rows have yellow cells in the weight_kg column.",
+            "These are the expected blanks identified during validation."
+          ]
+        },
+        {
+          "type": "common_trap",
+          "items": [
+            "Conditional formatting in Excel is a visual tool only.",
+            "It does not change the data.",
+            "It simply makes the blank cells easier to spot.",
+            "If you later refresh the Power Query data, the conditional formatting will still apply."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Is there a sheet called SD1_Output with 50 rows of data?",
+            "Are the GPS-030 route columns highlighted in yellow?",
+            "Are the GPS-029 and GPS-037 weight_kg cells highlighted in yellow?",
+            "Does the table show all the expected columns: delivery_id, route_code, courier_id, parcel_type, weight_kg, dispatch_date, delivery_date, status, customer_ref, notes, route_name, zone, standard_days, priority_level, courier_name, dragon_type, home_base?"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 9 — Save the Final Clean Output",
+      "intro": "In this mission, you are going to save the clean, validated SD1 output as a separate file. This is the deliverable that goes to the board.",
+      "callouts": [
+        {
+          "type": "try_this",
+          "items": [
+            "In Excel, click File at the top left.",
+            "Click Save As.",
+            "Navigate to the folder: 02_workbook_data",
+            "In the File name box, type exactly: sd1_complete",
+            "Make sure the file type is set to Excel Workbook (.xlsx).",
+            "Click Save.",
+            "Your clean final output is now saved as 02_workbook_data/sd1_complete.xlsx.",
+            "Open the file to confirm it saved correctly.",
+            "You should see the SD1_Output sheet with 50 rows of combined, merged and validated delivery data.",
+            "You should also see the Validation Notes sheet with your completed checks."
+          ]
+        },
+        {
+          "type": "nice_work",
+          "items": [
+            "You have completed the SD1 training pilot.",
+            "You imported four source files.",
+            "You cleaned the data using Power Query tools.",
+            "You appended two delivery tables into one.",
+            "You merged route details and dragon details into the combined table.",
+            "You validated the result and highlighted the blank cells.",
+            "You saved the clean output as 02_workbook_data/sd1_complete.xlsx.",
+            "BY THE ANCIENT SCROLLS — Zogra is delighted. The board report can now be prepared."
+          ]
+        }
+      ]
+    }
+  ],
+  "closing": {
+    "heading": "What You Can Now Do",
+    "subheading": "Outstanding. Here is what you have achieved in Workbook 3.",
+    "outcomes": [
+      "Explain the difference between an append and a merge",
+      "Append two Power Query tables using Home > Append Queries",
+      "Check the row count after an append to confirm it is correct",
+      "Load a reference table as a connection-only query",
+      "Merge two tables using a left outer join on a key column",
+      "Expand merged columns to show individual sub-columns",
+      "Identify unmatched records after a left join",
+      "Validate row counts, blank values and unmatched records",
+      "Apply conditional formatting to highlight blanks after loading",
+      "Save the final clean output as 02_workbook_data/sd1_complete.xlsx"
+    ],
+    "next_step": "The SD1 Training Pilot is complete. Your final output file is 02_workbook_data/sd1_complete.xlsx."
+  }
+}

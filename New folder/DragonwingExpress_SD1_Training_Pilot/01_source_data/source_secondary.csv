@@ -1,0 +1,21 @@
+dragon_id,dragon_name,dragon_type,certification_level,base_location_code
+DRG-01,Glimmerwhisk,Skywing,Senior,CLD
+DRG-02,Pinecracker,Frostscale,Standard,MNT
+DRG-03,Smolderpaw,Emberback,Master,EMB
+DRG-04,Bramblefoot,Mistwyrm,Trainee,SWP
+DRG-05,Quibbletooth,Skywing,Standard,RVR
+DRG-06,Tinderling,Emberback,Senior,EMB
+DRG-07,Marshmallow,Mistwyrm,Standard,SWP
+DRG-08,Pebblebreath,Frostscale,Standard,MNT
+DRG-09,Honeyglide,Skywing,Master,CLD
+DRG-10,snorkel,Mistwyrm,Trainee,SWP
+DRG-11,Sparkletail,Emberback,Senior,TOR
+DRG-12,FROSTBITE,Frostscale,Master,MNT
+DRG-13,Whiffleflame,Emberback ,Standard,EMB
+DRG-14,Coddlewing,Skywing,Trainee,CLD
+DRG-15,  Driftcloud,Mistwyrm,Standard,RVR
+DRG-16,Twigsnap,Frostscale,Senior,MNT
+DRG-17,Hopkettle,Skywing,Standard,BAY
+DRG-18,Bumblebite,Emberback,Trainee,EMB
+DRG-19,Mossglint,Mistwyrm,Senior,VLE
+DRG-20,Riverpaw,Frostscale,Master,RVR

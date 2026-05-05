@@ -1,0 +1,19 @@
+dragon_id,dragon_name,breed,max_load_kg,last_inspection_date,status
+DRG-001,Smokeplume,Hearthback,220,2026-04-10,Active
+DRG-002,Cinderflint,Cinder-tail,180,2026-04-12,Active
+DRG-003,Mistwhisper,Mistwing,150,2026-03-28,Resting
+DRG-004,Aurelia,Hearthback,240,2026-04-15,Active
+DRG-005,Briarflame,Cinder-tail,195,2026-04-18,Active
+DRG-006,Stormtail,Mistwing,160,2026-04-09,Active
+DRG-007,Pyrrwen,Hearthback,215,2026-04-20,Training
+DRG-008,Quickash,Cinder-tail,175,2026-04-14,Active
+DRG-009,Glimmerwing,Mistwing,145,2026-04-11,Active
+DRG-010,Brackenscale,Hearthback,230,2026-04-02,Resting
+DRG-011,Tindergale ,Cinder-tail,185,2026-04-17,Active
+DRG-012,Frostmuzzle,Mistwing,,2026-04-19,Active
+DRG-013,Saltbreath,Hearthback,205,2026-04-13,Active
+DRG-014,Lumenwing,Mistwing,155,2026-04-21,Training
+DRG-015,Cinderpaw,hearthback,218,2026-04-16,Active
+DRG-016,Mossfire,Cinder-tail,178,2026-03-30,Resting
+DRG-017,Ashveil,Mistwing,142,2026-04-22,Active
+DRG-018,Goldhorn,Hearthback,235,2026-04-23,Active

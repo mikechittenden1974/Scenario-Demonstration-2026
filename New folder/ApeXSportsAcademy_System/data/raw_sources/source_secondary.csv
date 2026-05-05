@@ -1,0 +1,36 @@
+member_id,first_name,last_name,date_of_birth,age,membership_type,join_date,postcode,gender,email,status
+MBR007,Aaron,Patel,1990-03-12,34,Gold,2022-01-15,S1 2AA,Male,aaron.patel@email.com,Active
+MBR012,Beth,Clarke,1985-07-22,38,Platinum,2021-06-01,S2 3BB,Female,beth.clarke@email.com,Active
+MBR019,Carlos,Osei,1995-11-05,28,Silver,2023-03-10,S3 4CC,Male,carlos.osei@email.com,Active
+MBR023,Diane,Nguyen,1988-02-14,36,gold,2022-09-20,S4 5DD,Female,diane.nguyen@email.com,Active
+MBR034,Ed,Morrison,1992-08-30,31,Silver,2023-11-01,,Male,ed.morrison@email.com,Active
+MBR045,Fatima,Khan,1997-06-17,26,Bronze,2024-01-05,S6 7FF,Female,fatima.khan@email.com,Active
+MBR056,George,Holt,1983-09-25,40,PLATINUM,2020-04-15,S7 8GG,Male,george.holt@email.com,Active
+MBR078,Harriet,Simmons,1991-12-01,32,Gold,2022-07-10,S8 9HH,Female,harriet.simmons@email.com,Active
+MBR091,Ivan,Baker,1986-04-18,37,Silver,2023-05-22,S9 0II,Male,ivan.baker@email.com,Active
+MBR023,Diane,Nguyen,1988-02-14,36,gold,2022-09-20,S4 5DD,Female,diane.nguyen@email.com,Active
+MBR103,Jane,Fox,1999-01-20,25,Bronze,2024-02-01,S10 1JJ,Female,jane.fox@email.com,Active
+MBR115,Kyle,Adebayo,1993-05-07,31,Silver,2023-08-15,S11 2KK,Male,kyle.adebayo@email.com,Active
+MBR127,Laura,Chen,1987-10-28,36,Gold,2021-12-01,,Female,laura.chen@email.com,Inactive
+MBR139,Mike,Burns,1980-03-15,44,Platinum,2019-07-20,S13 4MM,Male,mike.burns@email.com,Active
+MBR151,Nina,Okafor,1996-08-09,27,Bronze,2024-03-10,S14 5NN,Female,nina.okafor@email.com,Active
+MBR163,Oliver,Park,1989-11-22,34,silver,2022-04-05,S15 6OO,Male,oliver.park@email.com,Active
+MBR175,Priya,Mehta,1994-06-14,29,Gold,2023-01-18,S16 7PP,Female,priya.mehta@email.com,Active
+MBR187,Quentin,Shaw,1982-09-03,41,Platinum,2020-10-12,S17 8QQ,Male,quentin.shaw@email.com,Active
+MBR199,Rachel,Jones,1998-04-26,25,Bronze,2024-04-20,S18 9RR,Female,rachel.jones@email.com,Active
+MBR211,Sam,Ali,1991-07-31,32,Silver,2022-11-08,S19 0SS,Male,sam.ali@email.com,Inactive
+MBR223,Tanya,Wood,1986-01-17,38,Gold,2021-03-25,S20 1TT,Female,tanya.wood@email.com,Active
+MBR235,Umar,Thomas,1993-10-11,30,silver,2023-06-14,,Male,umar.thomas@email.com,Active
+MBR247,Vera,Malik,1977-05-23,46,Platinum,2018-09-01,S22 3VV,Female,vera.malik@email.com,Active
+MBR259,Will,Peters,2001-02-08,23,Bronze,2024-05-15,S23 4WW,Male,will.peters@email.com,Active
+MBR271,Xena,Obi,1990-08-19,33,Gold,2022-06-30,S24 5XX,Female,xena.obi@email.com,Active
+MBR283,Yusuf,Grant,1984-12-06,39,Platinum,2019-11-20,S25 6YY,Male,yusuf.grant@email.com,Active
+MBR295,Zoe,Lawson,1995-03-28,29,Silver,2023-09-01,S26 7ZZ,Female,zoe.lawson@email.com,Inactive
+MBR307,Alex,Murray,1988-06-15,35,GOLD,2022-02-14,S27 8AA,Male,alex.murray@email.com,Active
+MBR319,Bella,Russo,1997-09-04,26,Bronze,2024-01-20,S28 9BB,Female,bella.russo@email.com,Active
+MBR331,Chris,Yamamoto,1983-04-21,40,Platinum,2021-05-10,S29 0CC,Male,chris.yamamoto@email.com,Active
+MBR343,Donna,Stein,1992-07-12,31,Silver,2023-04-05,S30 1DD,Female,donna.stein@email.com,Active
+MBR355,Ethan,Nkosi,1979-10-29,44,Gold,2020-08-15,S31 2EE,Male,ethan.nkosi@email.com,Inactive
+MBR367,Fiona,Rahman,1996-01-07,28,Bronze,2024-06-01,S32 3FF,Female,fiona.rahman@email.com,Active
+MBR379,Greg,Sullivan,1987-05-16,36,Silver,2022-10-20,S33 4GG,Male,greg.sullivan@email.com,Active
+MBR391,Helen,Costa,1993-08-23,30,gold,2023-07-08,S34 5HH,Female,helen.costa@email.com,Active
