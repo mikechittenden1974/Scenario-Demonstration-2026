@@ -1,0 +1,589 @@
+{
+  "cover": {
+    "brand": "Dragon Express Delivery Co.",
+    "programme": "Level 3 Data Technician — SD1 Training Pilot",
+    "workbook_number": "Workbook 3 of 3",
+    "title": "Append, Merge and Validate",
+    "strapline": "Stack the records. Bring the details in. Check everything makes sense."
+  },
+  "snapshot": {
+    "difficulty": "4 out of 10",
+    "estimated_time": "60 minutes"
+  },
+  "resources": {
+    "start_file": "02_workbook_data/workbook3_start.xlsx",
+    "complete_file": "02_workbook_data/workbook3_complete.xlsx",
+    "source_files_required": [
+      "02_workbook_data/workbook3_start.xlsx"
+    ]
+  },
+  "team_note": {
+    "speaker": "Crumble Ash, Senior Dragon Wrangler",
+    "message": "Right. You have cleaned the data. Now we need to put it all together. Two quarters of deliveries get stacked into one table. Then we bring in the route details and the dragon profiles. Then we check everything adds up. I know it sounds like a lot. It is actually three simple ideas done one at a time. Let us get on with it."
+  },
+  "mission_brief": [
+    "In Workbooks 1 and 2, you imported and cleaned four source files.",
+    "In this workbook, you are going to combine them into one final clean dataset.",
+    "First, you will append the Q3 and Q4 delivery records — stacking them on top of each other into one table.",
+    "Then, you will merge the combined delivery table with the route lookup — adding route names and terrain types as new columns.",
+    "Then, you will merge the combined delivery table with the dragon profiles — adding dragon names and breeds as new columns.",
+    "Then, you will validate the result — checking row counts, blanks and unmatched records.",
+    "Finally, you will load the final clean output to a new file: 02_workbook_data/sd1_complete.xlsx"
+  ],
+  "why_this_matters": [
+    "Separate tables that cover the same topic should be combined before analysis — otherwise you might report on only half the data.",
+    "Adding related details from a secondary table through a merge means you do not have to re-enter information that already exists elsewhere.",
+    "Validating row counts and checking for unmatched records is how a data technician proves that the combining steps worked correctly.",
+    "sd1_complete.xlsx is the final clean dataset that the rest of the team can use for reporting and analysis."
+  ],
+  "learning_outcomes": {
+    "skills": [
+      "S4 — Use Power Query to append similar tables",
+      "S5 — Use Power Query to merge related tables using key fields",
+      "S6 — Validate combined data by checking row counts and unmatched records"
+    ],
+    "knowledge": [
+      "K7 — Understand the difference between append and merge",
+      "K8 — Understand how a left join preserves all rows from the main table",
+      "K11 — Understand why unmatched records need to be investigated"
+    ],
+    "behaviours": [
+      "B2 — Work systematically through a combining and validation task",
+      "B3 — Take responsibility for checking the quality of output data",
+      "B4 — Record findings clearly in a validation summary"
+    ],
+    "plain_english": "By the end of this workbook you will be able to stack two tables with matching columns, add columns from a related table using a key field, and validate the result by checking row counts and flagged records."
+  },
+  "sections": [
+    {
+      "kind": "lesson_intro",
+      "heading": "Append versus merge — the key difference",
+      "body": [
+        "Append and merge are two different operations. It is easy to confuse them. Here is the difference.",
+        "Append means stacking rows. You use append when two tables have the same columns and you want to combine their rows into one longer table. Think of it as adding more rows to the bottom.",
+        "Merge means adding columns. You use merge when two tables share a key field and you want to bring columns from one table into the other. Think of it as making the table wider.",
+        "In this workbook, you will do both. First you append the Q3 and Q4 delivery records. Then you merge the result with the route lookup and the dragon profiles.",
+        "Append = more rows. Merge = more columns."
+      ]
+    },
+    {
+      "kind": "glossary",
+      "heading": "Combine and validate terms",
+      "items": [
+        {
+          "term": "Append",
+          "definition": "A Power Query step that stacks rows from one table underneath rows from another table. The two tables must have the same column structure. Find it in Home > Append Queries."
+        },
+        {
+          "term": "Merge",
+          "definition": "A Power Query step that joins columns from one table into another, using a key field to match rows. Find it in Home > Merge Queries."
+        },
+        {
+          "term": "Left join",
+          "definition": "A type of merge that keeps all rows from the main table (left) and adds matching columns from the second table (right). If a row in the main table has no match in the second table, the added columns show null. This is usually the safest join type to start with."
+        },
+        {
+          "term": "Inner join",
+          "definition": "A type of merge that keeps only rows that have a match in both tables. Rows in the main table that have no match are removed. Use this only if you are certain every row should have a match."
+        },
+        {
+          "term": "Null",
+          "definition": "Power Query's way of showing a blank or missing value. After a left join, null appears in the new columns for any row that had no match in the second table."
+        },
+        {
+          "term": "Expand",
+          "definition": "After a merge, the new column appears as a table inside a cell. You need to expand it to see the individual column values. Click the expand icon at the top of the merged column to do this."
+        },
+        {
+          "term": "Row count validation",
+          "definition": "Checking that the number of rows in the combined table matches what you expected. For an append: the combined row count should equal the Q3 row count plus the Q4 row count."
+        },
+        {
+          "term": "Unmatched record",
+          "definition": "A row in the main table that had no matching value in the second table during a merge. After a left join, unmatched rows show null in the newly added columns. These rows need investigation."
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 1 — Understand append versus merge",
+      "intro": "Before you touch any data, make sure you understand the difference between append and merge. This mission asks you to complete a short table to confirm your understanding.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Read the lesson intro above: Append versus merge — the key difference.",
+            "Then answer the two questions below before you open any files."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Question 1: The Q3 delivery table has 40 rows. The Q4 delivery table has 12 rows. If you append them, how many rows should the combined table have?",
+            "Question 2: The delivery table has a route_code column. The route lookup table has a route_code column. You want to add route_name and terrain_type into the delivery table. Should you use append or merge?",
+            "Write your answers on a piece of paper or in a notes document before you continue.",
+            "Answers: Question 1 — 52 rows. Question 2 — merge, because you are adding columns from a related table."
+          ]
+        },
+        {
+          "type": "nice_work",
+          "items": [
+            "Understanding the difference between append and merge before you start is important.",
+            "It is a very common mistake to try to merge when you should append, or vice versa.",
+            "Now that you have confirmed your understanding, let us open the start file."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 2 — Open workbook3_start.xlsx and reopen Power Query safely",
+      "intro": "In this mission, you are opening 02_workbook_data/workbook3_start.xlsx. This file already contains your cleaned data from Workbook 2, ready for combining.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Start file: 02_workbook_data/workbook3_start.xlsx",
+            "This file contains four sheets: Cleaned Q3 Deliveries, Cleaned Q4 Deliveries, Dragon Profiles, and Route Lookup.",
+            "Each sheet has a corresponding query. You will use these queries in the append and merge steps."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. Open Excel.",
+            "Step 2. Go to File > Open.",
+            "Step 3. Navigate to the 02_workbook_data folder.",
+            "Step 4. Select workbook3_start.xlsx.",
+            "Step 5. Click Open.",
+            "Step 6. Power Query should still be available from when the data was originally loaded.",
+            "If Power Query Editor is already open, continue from the open window.",
+            "If Power Query Editor is not open:",
+            "  — Go to Data > Queries and Connections.",
+            "  — Find the query you need in the panel on the right.",
+            "  — Double-click the query name.",
+            "  — Power Query Editor should open.",
+            "If a query is missing:",
+            "  — Go to Data > Get Data.",
+            "  — Import the correct source file again.",
+            "  — Click Transform Data.",
+            "Step 7. Check the Queries and Connections panel. You should see queries for: Cleaned Q3 Deliveries, Cleaned Q4 Deliveries, Dragon Profiles, Route Lookup.",
+            "Step 8. If any query name is different, that is fine — just note what it is called, as you will need to select it by name in the next mission."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "You should be able to see the Queries and Connections panel on the right.",
+            "At least four queries should be listed.",
+            "If you cannot see the panel, click Data > Queries and Connections to open it.",
+            "Do not open Power Query Editor yet. You will do that in Mission 3."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 3 — Append the Q3 delivery query with the Q4 delivery query",
+      "intro": "In this mission, you will stack the Q3 and Q4 delivery records into one combined table. This is the append step. Remember: append adds rows. The two tables must have the same columns.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Working in: Power Query Editor",
+            "Query to edit: Cleaned Q3 Deliveries",
+            "You will append the Cleaned Q4 Deliveries query underneath it."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. In the Queries and Connections panel, double-click the Cleaned Q3 Deliveries query.",
+            "Step 2. Power Query Editor opens, showing the Q3 data.",
+            "Step 3. Click the Home tab in the Power Query ribbon.",
+            "Step 4. Click Append Queries.",
+            "Step 5. A dialog box opens asking which table to append.",
+            "Step 6. Under Table to Append, select: Cleaned Q4 Deliveries (or whatever your Q4 query is called).",
+            "Step 7. Click OK.",
+            "Step 8. Power Query adds the Q4 rows underneath the Q3 rows.",
+            "Step 9. Look at the row count at the bottom of the Power Query Editor.",
+            "Step 10. It should now show 52 rows — the 40 Q3 rows plus the 12 Q4 rows.",
+            "Step 11. Do not load yet. Continue to Mission 4 to check the row count carefully."
+          ]
+        },
+        {
+          "type": "common_trap",
+          "items": [
+            "If the append adds fewer rows than expected, check that both queries have the same column names.",
+            "Power Query matches columns by name during an append. If one table has package_type and the other has Package_Type, they will not match — Power Query will create two separate columns.",
+            "If the append adds more rows than expected, check that you have not accidentally appended a table that already contains both quarters.",
+            "If yours looks different, undo the append step from the Applied Steps panel by clicking the X next to Appended Query."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "The row count should be 52 — assuming your Q3 table had 40 clean rows and your Q4 table had 12 rows.",
+            "Scroll to the bottom of the preview and check that the last delivery_id values are in the DEL-04X and DEL-05X range.",
+            "The column count should still be 9 plus any extra columns you added in Workbook 2 such as time_flag."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 4 — Check the row count after the append",
+      "intro": "After an append, always check the row count. This is how you confirm the append worked correctly. You are looking to make sure no rows were lost and no extra rows were added.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Working in: Power Query Editor, query named Cleaned Q3 Deliveries (now showing appended data)",
+            "Check the row count shown at the bottom of the Power Query Editor.",
+            "Confirm it matches your expected total."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. Look at the bottom of the Power Query Editor window.",
+            "Step 2. You should see a message like: 52 rows loaded or similar.",
+            "Step 3. Check this against your expected total: 40 rows from Q3 plus 12 rows from Q4 equals 52.",
+            "Step 4. If the count matches, your append is correct.",
+            "Step 5. If the count is higher or lower, go back to Mission 3 and check the common trap box."
+          ]
+        },
+        {
+          "type": "spot_the_pattern",
+          "items": [
+            "With the combined 52-row table in front of you, have a look at the route_code column.",
+            "Did RT-003 (Northern Mountains) remain the most common route after the Q4 records were added?",
+            "Did the append add the expected number of rows?",
+            "Did any new route_code values appear in Q4 that were not in Q3?",
+            "No need to count precisely. Just look and notice."
+          ]
+        },
+        {
+          "type": "nice_work",
+          "items": [
+            "Row count confirmed. The append worked correctly.",
+            "You have now combined two quarters of delivery data into one table.",
+            "Next, you will bring in the route details by merging with the route lookup table."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 5 — Merge the appended delivery table with the route lookup table",
+      "intro": "Now that you have one combined delivery table, you will merge it with the route lookup. This adds the route_name, region, terrain_type, and typical_time_mins columns into your delivery table, using route_code as the key.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Working in: Power Query Editor, query named Cleaned Q3 Deliveries (your combined table)",
+            "You will merge this with the Route Lookup query.",
+            "The key field is route_code.",
+            "Use a Left Join — this keeps all rows from your delivery table, even if there is no matching route in the lookup."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. In Power Query Editor, make sure you are editing the Cleaned Q3 Deliveries query (the combined 52-row table).",
+            "Step 2. Click the Home tab.",
+            "Step 3. Click Merge Queries.",
+            "Step 4. The Merge dialog box opens.",
+            "Step 5. In the top section, your current table is already shown. Click the route_code column in the top table to select it as the join key.",
+            "Step 6. In the second dropdown below, select the Route Lookup query.",
+            "Step 7. In the Route Lookup preview that appears, click the route_code column to select it as the matching key.",
+            "Step 8. At the bottom, make sure Join Kind is set to Left Outer (all from first, matching from second).",
+            "Step 9. Click OK.",
+            "Step 10. A new column appears at the right of the preview, showing Route Lookup as a table icon.",
+            "Step 11. Click the expand icon at the top of this new column (it looks like two arrows pointing outward).",
+            "Step 12. A list of columns from the Route Lookup table appears. Select: route_name, region, terrain_type, typical_time_mins.",
+            "Step 13. Untick Use original column name as prefix if it is ticked.",
+            "Step 14. Click OK.",
+            "Step 15. The four route columns appear in your combined table."
+          ]
+        },
+        {
+          "type": "common_trap",
+          "items": [
+            "If you use an Inner Join instead of a Left Join, any delivery row with a route_code that has no match in the lookup will be removed entirely.",
+            "For this dataset, that would remove the row with route_code RT-X99 — which you want to keep so you can investigate it.",
+            "Always use Left Join as your default starting point unless you have a specific reason to use another type.",
+            "Right joins and full outer joins are available, but you will not need them for SD1."
+          ]
+        },
+        {
+          "type": "spot_the_pattern",
+          "items": [
+            "After expanding the route columns, look at the route_name and terrain_type columns.",
+            "Are there any rows where route_name shows null?",
+            "If so, which route_code do those rows have?",
+            "What does this tell you?",
+            "A null in route_name after a left join means that route_code had no match in the lookup table.",
+            "That is the RT-X99 pattern you first noticed in Workbook 1."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Your combined table should now have 13 columns — the original 9 (or 10 with time_flag) plus route_name, region, terrain_type, typical_time_mins.",
+            "The row count should still be 52 — a left join never removes rows from the main table.",
+            "One row should show null in the route_name, region, terrain_type and typical_time_mins columns — the row with route_code RT-X99.",
+            "If your row count changed, check that you used Left Outer join, not Inner join."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 6 — Merge the delivery table with the dragon profiles table",
+      "intro": "In this mission, you will merge the combined delivery table with the dragon profiles. This adds the dragon name, breed, home base, and other details into your delivery table, using dragon_id as the key.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Working in: Power Query Editor, query named Cleaned Q3 Deliveries (your combined and partially merged table)",
+            "You will merge this with the Dragon Profiles query.",
+            "The key field is dragon_id.",
+            "Use a Left Join."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. In Power Query Editor, click the Home tab.",
+            "Step 2. Click Merge Queries.",
+            "Step 3. Click the dragon_id column in the top table to select it as the join key.",
+            "Step 4. In the second dropdown, select the Dragon Profiles query.",
+            "Step 5. In the Dragon Profiles preview, click the dragon_id column to select it.",
+            "Step 6. Make sure Join Kind is set to Left Outer.",
+            "Step 7. Click OK.",
+            "Step 8. A new column appears at the right showing Dragon Profiles as a table icon.",
+            "Step 9. Click the expand icon.",
+            "Step 10. Select these columns to expand: dragon_name, breed, home_base, max_load_kg, active, joined_year.",
+            "Step 11. Untick Use original column name as prefix.",
+            "Step 12. Click OK.",
+            "Step 13. The dragon detail columns appear in your combined table."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Your table should now have 19 or 20 columns — the original columns plus the four route columns plus the six dragon columns.",
+            "The row count should still be 52.",
+            "Check the dragon_name column. Do all rows show a dragon name, or are any showing null?",
+            "If any rows show null in dragon_name, that means the dragon_id in that delivery row did not match any row in the Dragon Profiles table.",
+            "For this training dataset, all dragon_id values in the delivery log should match the Dragon Profiles table."
+          ]
+        },
+        {
+          "type": "spot_the_pattern",
+          "items": [
+            "Look at the dragon_name and time_flag columns together.",
+            "Do the rows marked Investigate in time_flag tend to share the same dragon_name?",
+            "Look at the breed column. Which breed appears most often in the Investigate rows?",
+            "This is the kind of pattern that a data technician surfaces for the analytical team.",
+            "You are not analysing — you are pointing the way."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 7 — Expand useful columns",
+      "intro": "You have already expanded the merged columns in Missions 5 and 6. In this mission, you will do a final check to make sure all the columns you need are present and that no unwanted columns snuck in during the expand steps.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Working in: Power Query Editor, query named Cleaned Q3 Deliveries (fully merged table)",
+            "Check that the final column list is correct.",
+            "Remove any accidental duplicate columns."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. Scroll right across the Power Query preview and check the column names.",
+            "Step 2. The columns should be: delivery_id, dragon_id, route_code, delivery_date, package_type, status, weight_kg, delivery_time_mins, notes, time_flag, route_name, region, terrain_type, typical_time_mins, dragon_name, breed, home_base, max_load_kg, active, joined_year.",
+            "Step 3. If any column appears twice, right-click the duplicate and choose Remove.",
+            "Step 4. If any column name has Route Lookup or Dragon Profiles as a prefix, double-click the header and rename it to remove the prefix.",
+            "Step 5. Check that route_name and dragon_name are separate columns and both contain data."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "All columns should have clean, clear names with no prefixes.",
+            "No column should appear twice.",
+            "The row count should still be 52.",
+            "You are now ready to validate."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 8 — Validate the final result",
+      "intro": "Validation is how you prove that the combining steps worked correctly. In this mission, you will check row counts, find any null values introduced by the merges, and confirm that the one unmatched record is visible and flagged.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Working in: Power Query Editor, query named Cleaned Q3 Deliveries (final merged table)",
+            "Check row count.",
+            "Check for null values.",
+            "Confirm that the RT-X99 row is visible and shows null in the route columns."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. Check the row count at the bottom of the Power Query Editor. It should be 52.",
+            "Step 2. Click View > Column Quality.",
+            "Step 3. Look at the route_name column. It should show a small percentage as Empty — because one row (RT-X99) had no match.",
+            "Step 4. Click the dropdown arrow on the route_name column header.",
+            "Step 5. Untick everything except null.",
+            "Step 6. The preview should show exactly one row — the RT-X99 delivery.",
+            "Step 7. Click Clear Filter on the route_name column to restore the full view.",
+            "Step 8. Check the applied steps in the Applied Steps panel and count them. You should see steps for: append, first merge, expand, second merge, expand."
+          ]
+        },
+        {
+          "type": "spot_the_pattern",
+          "items": [
+            "Look at the one unmatched row — the RT-X99 delivery.",
+            "What dragon made it?",
+            "What is the delivery_time_mins for that row?",
+            "Does it show Investigate in the time_flag column?",
+            "Does this row tell you anything interesting when you can now see the dragon name and breed?",
+            "Write your observation in a notes document or on a piece of paper."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Row count: 52",
+            "Null values in route_name: exactly 1 row (the RT-X99 delivery)",
+            "Null values in dragon_name: 0 rows (all dragon_id values matched)",
+            "If your counts are different, check the common trap box in Mission 5."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 9 — Load and visually check with conditional formatting",
+      "intro": "In this mission, you will close Power Query and load your final merged table to a sheet. Then you will use conditional formatting in Excel to visually highlight any null values or deliveries that need investigation.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Working in: Power Query Editor",
+            "Close Power Query and load the final merged table to a new sheet.",
+            "Then use Excel conditional formatting to highlight cells that need attention.",
+            "Note: conditional formatting is an Excel worksheet feature, not a Power Query feature. This is one of the approved steps to do after loading."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. In Power Query Editor, click the Home tab.",
+            "Step 2. Click Close and Load > Close and Load To.",
+            "Step 3. In the dialog, choose Table and select New worksheet.",
+            "Step 4. Click OK.",
+            "Step 5. The merged data loads as a formatted table on a new sheet.",
+            "Step 6. Rename the sheet: Combined Deliveries",
+            "Step 7. Now add conditional formatting. Select the route_name column.",
+            "Step 8. Click the Home tab in the Excel ribbon.",
+            "Step 9. Click Conditional Formatting > Highlight Cells Rules > More Rules.",
+            "Step 10. Set Format only cells that contain: Blanks.",
+            "Step 11. Choose a fill colour — for example, light orange.",
+            "Step 12. Click OK.",
+            "Step 13. The blank route_name cell (the RT-X99 row) should now be highlighted.",
+            "Step 14. Repeat the conditional formatting for the dragon_name column to check for any nulls there too.",
+            "Step 15. Review the highlighted cells visually. Make a note of what you see."
+          ]
+        },
+        {
+          "type": "common_trap",
+          "items": [
+            "Conditional formatting is applied to the Excel worksheet, not inside Power Query.",
+            "If you refresh the Power Query connection, the data reloads but the conditional formatting stays on the sheet.",
+            "This is an intentional feature — formatting is separate from the data."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Your Combined Deliveries sheet should show the full merged table with 52 rows and all columns.",
+            "The one row with route_code RT-X99 should be highlighted in the route_name column.",
+            "The dragon_name column should have no highlighted cells.",
+            "If you see more highlighted cells than expected, scroll through and check whether any values are truly blank or just show as empty."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 10 — Save the final clean output as sd1_complete.xlsx",
+      "intro": "You have reached the final step. In this mission, you will save the finished clean dataset as the official SD1 output file. This is the file that the rest of the team will use for reporting and analysis.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "You are working in: 02_workbook_data/workbook3_start.xlsx",
+            "The final output file must be saved as: 02_workbook_data/sd1_complete.xlsx",
+            "sd1_complete.xlsx is the finished product — the clean, combined, validated dataset."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. In 02_workbook_data/workbook3_start.xlsx, make sure the Combined Deliveries sheet is complete and correct.",
+            "Step 2. Go to File > Save As.",
+            "Step 3. Navigate to the 02_workbook_data folder.",
+            "Step 4. In the file name box, type: sd1_complete",
+            "Step 5. Make sure the file type is set to Excel Workbook (.xlsx).",
+            "Step 6. Click Save.",
+            "Step 7. You now have 02_workbook_data/sd1_complete.xlsx as a separate file.",
+            "Step 8. Open 02_workbook_data/sd1_complete.xlsx and do a final visual check.",
+            "Step 9. Check: does the Combined Deliveries sheet have 52 rows? Do all the route and dragon columns appear? Is the RT-X99 row visible with its blank route_name highlighted?",
+            "Step 10. If everything looks correct, your SD1 output is complete.",
+            "Step 11. Compare your sd1_complete.xlsx with 02_workbook_data/workbook3_complete.xlsx to check your result."
+          ]
+        },
+        {
+          "type": "nice_work",
+          "items": [
+            "You have completed all three workbooks.",
+            "You have imported four source files, cleaned the data using Power Query, appended two quarters of delivery records, merged two related tables, validated the result, and produced a final clean output.",
+            "That is the complete SD1 data preparation workflow.",
+            "sd1_complete.xlsx is your finished dataset — ready for the quarterly review meeting at Dragon Express Delivery Co.",
+            "Crumble Ash says: Well done. The dragons are grateful. The data is clean. Now we can actually answer some questions."
+          ]
+        }
+      ]
+    }
+  ],
+  "closing": {
+    "heading": "What you can now do",
+    "subheading": "Workbook 3 complete — outstanding",
+    "outcomes": [
+      "Explain the difference between append and merge in plain English",
+      "Use Append Queries in Power Query to stack rows from two matching tables",
+      "Check the row count after an append to confirm it worked correctly",
+      "Use Merge Queries in Power Query with a Left Outer join",
+      "Expand merged columns to show individual values",
+      "Identify null values after a merge and explain what they mean",
+      "Recognise an unmatched record and explain why it shows as null",
+      "Use conditional formatting to highlight blank or unexpected values after loading",
+      "Save the final clean dataset as sd1_complete.xlsx in the correct folder"
+    ],
+    "next_step": "Your SD1 clean output is saved at 02_workbook_data/sd1_complete.xlsx. Compare it to 02_workbook_data/workbook3_complete.xlsx to review the reference answer. Well done on completing the pilot."
+  }
+}

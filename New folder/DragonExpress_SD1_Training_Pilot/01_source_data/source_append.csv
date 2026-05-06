@@ -1,0 +1,13 @@
+delivery_id,dragon_id,route_code,delivery_date,package_type,status,weight_kg,delivery_time_mins,notes
+DEL-041,DRG-003,RT-003,2025-10-01,Express,Completed,10.2,44,
+DEL-042,DRG-007,RT-001,2025-10-02,Standard,Completed,8.9,63,
+DEL-043,DRG-001,RT-002,2025-10-03,Fragile,Completed,3.7,59,
+DEL-044,DRG-005,RT-004,2025-10-06,EXPRESS,Completed,11.5,142,
+DEL-045,DRG-009,RT-005,2025-10-07,Standard,In Transit,9.0,77,
+DEL-046,DRG-002,RT-003,2025-10-08,Express,Completed,7.3,46,
+DEL-047,DRG-010,RT-006,2025-10-09,Fragile,Completed,2.5,54,
+DEL-048,DRG-004,RT-001,2025-10-10,Standard,Completed,10.7,61,
+DEL-049,DRG-011,RT-007,2025-10-13,Express,Failed,13.1,98,Weather
+DEL-050,DRG-008,RT-003,2025-10-14,Standard,Completed,8.4,47,
+DEL-051,DRG-006,RT-002,2025-10-15,express,Completed,6.6,70,
+DEL-052,DRG-012,RT-005,2025-10-16,Fragile,Completed,3.2,58,

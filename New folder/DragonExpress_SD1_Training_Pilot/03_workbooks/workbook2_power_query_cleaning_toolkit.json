@@ -1,0 +1,563 @@
+{
+  "cover": {
+    "brand": "Dragon Express Delivery Co.",
+    "programme": "Level 3 Data Technician — SD1 Training Pilot",
+    "workbook_number": "Workbook 2 of 3",
+    "title": "Power Query Cleaning Toolkit",
+    "strapline": "Eight missions. One clean dataset. Step by step."
+  },
+  "snapshot": {
+    "difficulty": "3 out of 10",
+    "estimated_time": "45 to 60 minutes"
+  },
+  "resources": {
+    "start_file": "02_workbook_data/workbook2_start.xlsx",
+    "complete_file": "02_workbook_data/workbook2_complete.xlsx",
+    "source_files_required": [
+      "02_workbook_data/workbook2_start.xlsx"
+    ]
+  },
+  "team_note": {
+    "speaker": "Flick Pebble, Data Coordinator",
+    "message": "Right then. You have seen the data. Now we are going to clean it — using Power Query. All the cleaning in this workbook happens inside Power Query Editor. We are not using worksheet formulas to clean. Power Query does this job much more reliably, and every step is saved so you can undo and redo. Take your time. One mission at a time."
+  },
+  "mission_brief": [
+    "In Workbook 1, you imported four source files and noticed several issues.",
+    "In this workbook, you are going to fix those issues — one step at a time — using Power Query.",
+    "You will work through the Q3 delivery log and the dragon profiles.",
+    "The tools you use in this workbook follow a logical order: structure first, then types, then remove what is not needed, then clean text, then fix casing, then handle blanks, then shape the data, then check keys.",
+    "By the end of this workbook, the data will be ready to combine in Workbook 3."
+  ],
+  "why_this_matters": [
+    "Data that has not been cleaned can produce wrong results when you combine or analyse it.",
+    "A leading space before DRG-009 might seem tiny, but it would cause a merge to fail — because the computer sees DRG-009 and  DRG-009 as two different values.",
+    "Inconsistent casing in package_type means Express, EXPRESS and express would be counted separately — inflating the count for one category.",
+    "Cleaning data before combining it is always the right order of work."
+  ],
+  "learning_outcomes": {
+    "skills": [
+      "S2 — Use Power Query to clean and transform data",
+      "S3 — Apply Power Query tools in a logical sequence",
+      "S5 — Identify and handle duplicate records appropriately"
+    ],
+    "knowledge": [
+      "K10 — Understand data types and why they matter",
+      "K11 — Understand key fields and how to prepare them for merging"
+    ],
+    "behaviours": [
+      "B2 — Work systematically through a cleaning task",
+      "B4 — Record cleaning decisions clearly"
+    ],
+    "plain_english": "By the end of this workbook you will be able to use Power Query to clean text, fix casing, handle blank values, remove duplicates, and prepare a key column for merging."
+  },
+  "sections": [
+    {
+      "kind": "lesson_intro",
+      "heading": "The Power Query cleaning order",
+      "body": [
+        "Power Query is Excel's tool for importing, cleaning and reshaping data. You access it through the Data tab.",
+        "In this workbook, we follow a specific order. This order is not random — each step builds on the one before it.",
+        "The order is: check the structure, then set data types, then remove what is not needed, then clean and trim text, then fix casing and standardise values, then investigate blanks, then shape columns, then check key fields.",
+        "You do not need to memorise this order. The missions in this workbook will walk you through it.",
+        "Remember: all cleaning must happen inside Power Query Editor. Do not use worksheet formulas such as TRIM or PROPER to clean the data."
+      ]
+    },
+    {
+      "kind": "glossary",
+      "heading": "Power Query terms worth knowing",
+      "items": [
+        {
+          "term": "Applied Steps",
+          "definition": "A panel in Power Query Editor that lists every action you have taken on the data. You can click on any step to see what the data looked like at that point. You can also delete a step if you made a mistake."
+        },
+        {
+          "term": "Data type",
+          "definition": "A setting that tells Power Query what kind of value is in a column. Common types are Text, Whole Number, Decimal Number, Date. Setting the correct type is important before you do any other work."
+        },
+        {
+          "term": "Trim",
+          "definition": "A Power Query step that removes extra spaces from the beginning and end of text values. Find it in Transform > Format > Trim."
+        },
+        {
+          "term": "Clean",
+          "definition": "A Power Query step that removes invisible characters from text values. Find it in Transform > Format > Clean."
+        },
+        {
+          "term": "Capitalize Each Word",
+          "definition": "A Power Query step that changes text casing so the first letter of each word is uppercase. Find it in Transform > Format > Capitalize Each Word."
+        },
+        {
+          "term": "Replace Values",
+          "definition": "A Power Query step that finds a specific value and replaces it with another. Useful for fixing inconsistent category labels. Find it in Transform > Replace Values."
+        },
+        {
+          "term": "Remove Duplicates",
+          "definition": "A Power Query step that removes rows where all selected column values match a row already seen. Find it in Home > Remove Rows > Remove Duplicates."
+        },
+        {
+          "term": "Column quality",
+          "definition": "A view in Power Query that shows, for each column, what percentage of values are valid, empty or contain errors. Find it in View > Column Quality."
+        },
+        {
+          "term": "Close and Load To",
+          "definition": "An option in Power Query that lets you choose where to send the cleaned data — as a table on a sheet, or only as a connection in the background."
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 1 — Reopen Power Query safely",
+      "intro": "Before you clean anything, you need to open the data in Power Query Editor. In this mission, you are going to open 02_workbook_data/workbook2_start.xlsx and then open the correct query inside Power Query Editor.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Open the file: 02_workbook_data/workbook2_start.xlsx",
+            "This file contains the raw delivery data on two sheets: Raw Primary Data and Raw Append Data.",
+            "Each sheet was loaded as a query. You will reopen the query for the Raw Primary Data sheet first."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. Open Excel.",
+            "Step 2. Go to File > Open.",
+            "Step 3. Navigate to the 02_workbook_data folder.",
+            "Step 4. Select workbook2_start.xlsx.",
+            "Step 5. Click Open.",
+            "Step 6. Power Query should still be available from when the data was originally loaded.",
+            "Step 7. Click the Data tab in the Excel ribbon.",
+            "Step 8. Click Queries and Connections.",
+            "Step 9. A panel opens on the right. You should see a list of queries.",
+            "Step 10. Find the query named Raw Primary Data or similar.",
+            "Step 11. Double-click that query name.",
+            "Step 12. Power Query Editor should open, showing the Q3 delivery data.",
+            "If Power Query Editor is not open after double-clicking, try right-clicking the query name and choosing Edit.",
+            "If the query is missing entirely: go to Data > Get Data > From File > From Workbook and reimport 01_source_data/source_primary.xlsx. Then click Transform Data."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Power Query Editor should be open.",
+            "You should see a grid of data with column names along the top.",
+            "The Applied Steps panel on the right should show the steps that were applied when the data was first loaded.",
+            "If your Power Query Editor looks different from this, let your trainer know."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. In Power Query Editor, find the query name in the top-left. It might say Query1 or something generic.",
+            "Step 2. Right-click the query name in the Queries panel on the left.",
+            "Step 3. Choose Rename.",
+            "Step 4. Type: Q3 Deliveries",
+            "Step 5. Press Enter.",
+            "Step 6. The query is now named clearly. This helps you find it again later."
+          ]
+        },
+        {
+          "type": "nice_work",
+          "items": [
+            "You have opened Power Query safely and renamed your query.",
+            "Naming queries clearly is a small habit that makes a big difference — especially when you have several queries open at once."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 2 — Name columns and set data types",
+      "intro": "Now that Power Query is open, your first cleaning job is to check the column names and make sure every column has the correct data type. Data types tell Power Query what kind of value is in each column — text, number, date, and so on.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Working in: Power Query Editor, query named Q3 Deliveries",
+            "Step 1. Check the column names match: delivery_id, dragon_id, route_code, delivery_date, package_type, status, weight_kg, delivery_time_mins, notes",
+            "Step 2. If any column name is wrong or unclear, rename it by double-clicking the column header.",
+            "Step 3. Set the correct data type for each column."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. Look at each column header in the Power Query preview.",
+            "Step 2. For each column, click the small icon to the left of the column name. This is the data type icon.",
+            "Step 3. Set these data types:",
+            "delivery_id — Text",
+            "dragon_id — Text",
+            "route_code — Text",
+            "delivery_date — Date",
+            "package_type — Text",
+            "status — Text",
+            "weight_kg — Decimal Number",
+            "delivery_time_mins — Whole Number",
+            "notes — Text",
+            "Step 4. When you change a data type, Power Query asks whether to replace the existing step or add a new one. Choose Add New Step.",
+            "Step 5. Check the Applied Steps panel on the right. You should see a new step added for each type change."
+          ]
+        },
+        {
+          "type": "common_trap",
+          "items": [
+            "If Power Query has already guessed a data type, it may have got it wrong.",
+            "delivery_date is the most common one to check — it might have been read as Text instead of Date.",
+            "If a value shows as an error after you change the type, it means the value in that cell could not be converted.",
+            "For example, if a date cell contains the text Unknown, changing the type to Date will cause an error.",
+            "In that case, undo the type change with Ctrl+Z and investigate the column first."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Every column should now have the correct data type icon showing in the column header.",
+            "ABC means Text. 123 means Whole Number. 1.2 means Decimal Number. The calendar icon means Date.",
+            "Check the Applied Steps panel. You should see the type-change steps recorded there.",
+            "If any column shows errors after the type change, check the common trap box above."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 3 — Remove what we do not need",
+      "intro": "Sometimes a dataset contains columns that are not needed for the task. In this mission, you will check whether any columns should be removed. Removing unnecessary columns keeps the data tidy and makes later steps faster.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Working in: Power Query Editor, query named Q3 Deliveries",
+            "For this dataset, all nine columns are needed.",
+            "However, it is useful to know how to remove a column — so this mission will show you the method."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. Look at the column names: delivery_id, dragon_id, route_code, delivery_date, package_type, status, weight_kg, delivery_time_mins, notes.",
+            "Step 2. For this training dataset, all nine columns are needed. Do not remove any of them.",
+            "Step 3. To learn the method: right-click any column header. You will see the option Remove.",
+            "Step 4. If you ever need to remove a column, click Remove. The column disappears and a step is added to Applied Steps.",
+            "Step 5. If you remove a column by mistake, click the X next to the Removed Columns step in Applied Steps to undo it.",
+            "Step 6. You can also choose Remove Other Columns — this keeps only the columns you have selected and removes everything else. Useful for large datasets."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "For this dataset, you should still have all nine columns.",
+            "In a real data technician task, you would only remove a column if it contains no useful information, if it was added by Power Query automatically, or if it duplicates something else.",
+            "Always check with your team before removing a column — you do not want to discard something useful."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 4 — Clean and trim text",
+      "intro": "Text data often has invisible problems. Leading spaces — extra spaces before the first letter — can cause merges to fail. Trailing spaces — extra spaces after the last letter — can cause values that look identical to not match. The Trim and Clean steps in Power Query remove these invisible problems.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Working in: Power Query Editor, query named Q3 Deliveries",
+            "You will apply Trim and Clean to the text columns.",
+            "Start with dragon_id — this column is known to have a leading space in one row."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. In Power Query Editor, click the dragon_id column header to select it.",
+            "Step 2. Click the Transform tab in the Power Query ribbon.",
+            "Step 3. Click the Format button.",
+            "Step 4. A drop-down appears. Click Trim.",
+            "Step 5. Power Query removes any leading and trailing spaces from every value in the dragon_id column.",
+            "Step 6. Check row 38 in the preview. The value that previously showed  DRG-009 (with a leading space) should now show DRG-009.",
+            "Step 7. Repeat the Trim step for these columns: delivery_id, route_code, package_type, status, notes.",
+            "Step 8. To select multiple columns at once, hold Ctrl and click each column header. Then apply Trim once.",
+            "Step 9. After Trim, apply Clean: select the same text columns, click Transform > Format > Clean.",
+            "Step 10. Clean removes invisible characters that Trim does not catch."
+          ]
+        },
+        {
+          "type": "common_trap",
+          "items": [
+            "Trim in Power Query and the TRIM worksheet formula do the same basic job — but in this workbook you must use the Power Query version, not the formula.",
+            "The Power Query Trim is found at Transform > Format > Trim, not in the formula bar.",
+            "If you accidentally apply Trim to a number column, Power Query will show an error. Click the X next to that step in Applied Steps to undo it.",
+            "Always check the Applied Steps panel to confirm each step was added correctly."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Scroll through the dragon_id column. No value should have a space before DRG.",
+            "The value that was  DRG-009 should now be DRG-009.",
+            "Check the Applied Steps panel. You should see a Trimmed Text step recorded.",
+            "If you do not see it, try the Trim step again."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 5 — Fix casing and standardise values",
+      "intro": "The package_type column contains the same categories written in different ways — Express, EXPRESS, and express. To Power Query, these are three different values. In this mission, you will fix the casing so every value is consistent. You will then check for other inconsistent labels and standardise them.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Working in: Power Query Editor, query named Q3 Deliveries",
+            "Fix the casing in package_type using Capitalize Each Word.",
+            "Use Replace Values if any labels are still inconsistent after the casing fix."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. Click the package_type column header to select it.",
+            "Step 2. Click the Transform tab.",
+            "Step 3. Click Format.",
+            "Step 4. Click Capitalize Each Word.",
+            "Step 5. All values in package_type should now start with a capital letter and have the rest in lowercase: Express, Standard, Fragile.",
+            "Step 6. Scroll through the column and check that Express, Standard, and Fragile are the only three values.",
+            "Step 7. If any value is still wrong — for example if you see Std or Frag — you can use Replace Values.",
+            "Step 8. To use Replace Values: right-click the package_type column header and choose Replace Values.",
+            "Step 9. In the Value To Find box, type the incorrect value.",
+            "Step 10. In the Replace With box, type the correct value.",
+            "Step 11. Click OK.",
+            "Step 12. Repeat for any other inconsistent values in package_type."
+          ]
+        },
+        {
+          "type": "spot_the_pattern",
+          "items": [
+            "Before you apply Capitalize Each Word, look at the package_type column.",
+            "Can you see all three variations — Express, EXPRESS, and express?",
+            "Are they scattered randomly, or do they appear around the same type of record?",
+            "Do the inconsistent cases appear more often for one dragon or one route?",
+            "No need to solve it. Just notice the pattern."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "After this step, the package_type column should contain only: Express, Standard, Fragile.",
+            "No other spellings or cases should appear.",
+            "If you still see variations, use Replace Values to fix them one at a time.",
+            "Check the Applied Steps panel. You should see the Capitalized Each Word step recorded."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 6 — Investigate blanks",
+      "intro": "Three rows in the delivery log have a blank status. A blank status does not necessarily mean the data is wrong — it might mean the delivery was still in progress when the log was exported. In this mission, you will find the blanks and decide what to do with them.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Working in: Power Query Editor, query named Q3 Deliveries",
+            "Find the blank values in the status column.",
+            "Decide whether to keep, replace, or flag them.",
+            "For this training dataset, replace blank status values with the word Unknown."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. Click on the status column header.",
+            "Step 2. Click the View tab in the Power Query ribbon.",
+            "Step 3. Click Column Quality.",
+            "Step 4. A bar appears below each column header showing Valid, Error, and Empty percentages.",
+            "Step 5. Look at the status column bar. It should show some percentage as Empty.",
+            "Step 6. To replace the blank values: right-click the status column header.",
+            "Step 7. Choose Replace Values.",
+            "Step 8. In the Value To Find box, leave it completely empty.",
+            "Step 9. In the Replace With box, type: Unknown",
+            "Step 10. Click OK.",
+            "Step 11. Scroll through the status column. The rows that were blank should now show Unknown.",
+            "Step 12. Turn off Column Quality by clicking View > Column Quality again."
+          ]
+        },
+        {
+          "type": "spot_the_pattern",
+          "items": [
+            "Before you replace the blank values, look at which rows have a blank status.",
+            "Do the blank rows have anything in common?",
+            "Are they the same dragon?",
+            "Are they the same route?",
+            "Are they clustered in one part of the date range?",
+            "This kind of pattern is exactly what a data technician looks for. Even if you cannot solve it today, noticing it is the first step."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "After this step, the status column should have no blank cells.",
+            "The rows that were blank should now show: Unknown",
+            "Column Quality for the status column should show 100% Valid.",
+            "Make a note in your Cleaning Notes sheet: how many blanks were found and what they were replaced with."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 7 — Split, fill and create helpful columns",
+      "intro": "Power Query has tools for reshaping columns — splitting them, filling down, adding columns from examples, and creating conditional columns based on rules. In this mission, you will practise one of these: adding a Conditional Column that flags deliveries where the actual time was significantly longer than expected.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Working in: Power Query Editor, query named Q3 Deliveries",
+            "Add a Conditional Column called time_flag.",
+            "The rule is: if delivery_time_mins is greater than 100, set time_flag to Investigate. Otherwise, set it to OK."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. In Power Query Editor, click the Add Column tab in the ribbon.",
+            "Step 2. Click Conditional Column.",
+            "Step 3. A dialog box opens.",
+            "Step 4. In the New column name box, type: time_flag",
+            "Step 5. Under If, set the column to delivery_time_mins.",
+            "Step 6. Set the operator to is greater than.",
+            "Step 7. In the Value box, type: 100",
+            "Step 8. In the Output box, type: Investigate",
+            "Step 9. In the Else box at the bottom, type: OK",
+            "Step 10. Click OK.",
+            "Step 11. A new column called time_flag appears at the right of the preview.",
+            "Step 12. Check that rows with delivery_time_mins above 100 show Investigate."
+          ]
+        },
+        {
+          "type": "spot_the_pattern",
+          "items": [
+            "Look at the time_flag column after you have added it.",
+            "Which rows show Investigate?",
+            "Do those rows tend to have the same dragon_id?",
+            "Do they tend to be on the same route_code?",
+            "Remember: you spotted this in Workbook 1. Does this confirm your earlier observation?",
+            "That is the start of an analysis finding — even before any charts or summaries."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "The time_flag column should exist at the right side of the preview.",
+            "Rows where delivery_time_mins is greater than 100 should show: Investigate",
+            "All other rows should show: OK",
+            "If the column is not there, check that you clicked Add Column > Conditional Column and not Transform > Conditional Column."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 8 — Check and prepare keys",
+      "intro": "A key is a column used to match rows between tables. Before you merge tables in Workbook 3, you need to make sure that the key columns are clean and consistent. In this mission, you will check the delivery_id column for uniqueness and understand the difference between key-column duplicate removal and full-row duplicate removal.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Working in: Power Query Editor, query named Q3 Deliveries",
+            "Check whether delivery_id is unique.",
+            "Remove the duplicate delivery_id row.",
+            "Understand the difference between removing duplicates by key column and removing full-row duplicates."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. In Power Query Editor, click the delivery_id column header to select it.",
+            "Step 2. Click the Home tab.",
+            "Step 3. Click Remove Rows.",
+            "Step 4. Click Remove Duplicates.",
+            "Step 5. Power Query removes any rows where delivery_id is repeated.",
+            "Step 6. Check the row count at the bottom of the editor. It should have decreased by one — because DEL-019 appeared twice.",
+            "Step 7. Scroll to where DEL-019 appeared and confirm that only one version of it remains."
+          ]
+        },
+        {
+          "type": "worked_example",
+          "heading": "Key-column duplicates versus full-row duplicates",
+          "body": [
+            "There are two ways to remove duplicates in Power Query. It is important to know the difference.",
+            "Removing duplicates by key column: select the key column (for example, delivery_id), then click Home > Remove Rows > Remove Duplicates. Power Query looks only at that column and removes any row where the value in that column has already appeared.",
+            "Removing full-row duplicates: click the small table icon in the very top-left corner of the Power Query preview to select the entire table. Then click Home > Remove Rows > Remove Duplicates. Power Query compares every value in every column and only removes a row if it is an exact copy of another row in every single column.",
+            "In this mission, you are removing duplicates by the delivery_id key column — because delivery_id should be unique.",
+            "If you ever need to remove true full-row duplicates, select the whole table first using the table icon in the top-left.",
+            "In this dataset, there are no full-row duplicates other than the DEL-019 pair — which are also full-row duplicates because every column matches."
+          ]
+        },
+        {
+          "type": "common_trap",
+          "items": [
+            "Do not select only the key column if the aim is to remove full-row duplicates.",
+            "Selecting one column tells Power Query to check duplicates using only that column — not the whole row.",
+            "For key-column duplicate removal: select just the key column first, then click Remove Duplicates.",
+            "For full-row duplicate removal: click the table icon in the top-left corner to select the whole table, then click Remove Duplicates.",
+            "In this task, there is no need to remove full-row duplicates separately. The important thing is knowing the safe method.",
+            "If you ever need to remove full-row duplicates in a much larger dataset, select the whole table first."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "The row count should now be one fewer than before you removed duplicates.",
+            "If your original row count was 41, it should now be 40.",
+            "Scroll through the delivery_id column and check that DEL-019 appears only once.",
+            "Check the Applied Steps panel. You should see a Removed Duplicates step recorded."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. Now click Home > Close & Load > Close & Load To.",
+            "Step 2. In the dialog that appears, choose Table.",
+            "Step 3. Choose Existing worksheet and select a blank area, or choose New worksheet.",
+            "Step 4. Click OK.",
+            "Step 5. The cleaned Q3 data loads as a table on a new sheet.",
+            "Step 6. Rename the sheet: Cleaned Deliveries",
+            "Step 7. Save your workbook: 02_workbook_data/workbook2_start.xlsx",
+            "Step 8. Open your Cleaning Notes sheet and fill in what you cleaned, what step you used, and how many rows were affected."
+          ]
+        },
+        {
+          "type": "nice_work",
+          "items": [
+            "You have completed Workbook 2.",
+            "You can now use Power Query to trim spaces, fix casing, standardise values, replace blanks, add a conditional column, and remove duplicates.",
+            "Your data is clean and the key column is unique.",
+            "You are ready for the final workbook: append, merge and validate.",
+            "Save 02_workbook_data/workbook2_start.xlsx and compare your Cleaned Deliveries sheet to 02_workbook_data/workbook2_complete.xlsx."
+          ]
+        }
+      ]
+    }
+  ],
+  "closing": {
+    "heading": "What you can now do",
+    "subheading": "Workbook 2 complete — excellent work",
+    "outcomes": [
+      "Reopen a query safely using Data > Queries and Connections",
+      "Rename a query in Power Query Editor",
+      "Set correct data types for each column",
+      "Apply Trim and Clean to remove invisible spacing issues",
+      "Apply Capitalize Each Word to fix casing",
+      "Use Replace Values to standardise inconsistent labels",
+      "Use Column Quality to find blank values",
+      "Replace blank values with a placeholder such as Unknown",
+      "Add a Conditional Column with a custom rule",
+      "Remove duplicates by key column",
+      "Explain the difference between key-column and full-row duplicate removal",
+      "Use Close and Load To to load cleaned data as a table"
+    ],
+    "next_step": "Open 02_workbook_data/workbook3_start.xlsx to begin the Append, Merge and Validate workbook."
+  }
+}

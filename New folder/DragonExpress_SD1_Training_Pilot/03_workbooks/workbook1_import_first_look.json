@@ -1,0 +1,478 @@
+{
+  "cover": {
+    "brand": "Dragon Express Delivery Co.",
+    "programme": "Level 3 Data Technician — SD1 Training Pilot",
+    "workbook_number": "Workbook 1 of 3",
+    "title": "Import and First Look",
+    "strapline": "Bring the data in. See what is there. Build your confidence."
+  },
+  "snapshot": {
+    "difficulty": "2 out of 10",
+    "estimated_time": "30 to 45 minutes"
+  },
+  "resources": {
+    "start_file": "02_workbook_data/workbook1_start.xlsx",
+    "complete_file": "02_workbook_data/workbook1_complete.xlsx",
+    "source_files_required": [
+      "01_source_data/source_primary.xlsx",
+      "01_source_data/source_append.csv",
+      "01_source_data/source_secondary.csv",
+      "01_source_data/source_lookup.pdf"
+    ]
+  },
+  "team_note": {
+    "speaker": "Bramble Finch, Head Dispatcher",
+    "message": "Welcome aboard! Flick has asked me to give you a quick briefing. Your job today is simple: bring the files in and have a good look around. No fixing yet. No pressure. Just exploring. I once imported the wrong sheet and spent an hour cleaning a list of dragon lunchtime snacks instead of delivery records. Learn from my mistake — always check the Navigator window carefully!"
+  },
+  "mission_brief": [
+    "Dragon Express Delivery Co. runs deliveries across seven official routes.",
+    "Every quarter, the Data team pulls together the delivery logs, dragon profiles, and route reference to produce a clean summary.",
+    "This quarter, your job is to import the four source files, check what each one contains, and record your observations.",
+    "You are not cleaning anything yet. You are just opening the files and taking a first look.",
+    "By the end of this workbook, you will know what is in each file and have spotted your first data patterns."
+  ],
+  "why_this_matters": [
+    "Before you can clean or combine any data, you need to understand what you are working with.",
+    "Importing data carefully — and checking the Navigator window — prevents errors that can be very hard to undo later.",
+    "Spotting patterns early, even simple ones, is a real data technician skill. It tells you where to focus your cleaning effort."
+  ],
+  "learning_outcomes": {
+    "skills": [
+      "S1 — Identify and import data from multiple source files",
+      "S3 — Navigate Power Query to inspect imported data",
+      "S6 — Record observations about data quality"
+    ],
+    "knowledge": [
+      "K7 — Understand the purpose of primary, secondary and lookup tables",
+      "K8 — Understand how source files relate to each other through key fields",
+      "K10 — Recognise common data quality issues"
+    ],
+    "behaviours": [
+      "B2 — Work systematically through a data task",
+      "B4 — Record findings clearly and accurately"
+    ],
+    "plain_english": "By the end of this workbook you will be able to bring four different source files into Excel, check that they have loaded correctly, and write down what you noticed about each one."
+  },
+  "sections": [
+    {
+      "kind": "lesson_intro",
+      "heading": "Before you begin — what are we working with?",
+      "body": [
+        "Dragon Express Delivery Co. keeps its data in four separate files.",
+        "Each file has a different job. They connect to each other through shared codes called keys.",
+        "Here is a quick overview before you start importing.",
+        "source_primary.xlsx — The Q3 delivery log. Every row is one delivery attempt. This is your main table.",
+        "source_append.csv — The Q4 delivery log. Same structure as the Q3 file. You will stack these two together in Workbook 3.",
+        "source_secondary.csv — Dragon profiles. One row per dragon. You will link this to the delivery log using dragon_id.",
+        "source_lookup.pdf — The route reference table. Lists every official route code and what it means. You will link this using route_code.",
+        "You do not need to know all of this right now. Just keep it in the back of your mind as you explore."
+      ]
+    },
+    {
+      "kind": "glossary",
+      "heading": "Words worth knowing",
+      "items": [
+        {
+          "term": "Get Data",
+          "definition": "The Excel tool that lets you import data from external files. You find it on the Data tab."
+        },
+        {
+          "term": "Navigator window",
+          "definition": "The window that appears when you use Get Data. It shows you what is inside the file you are importing. Always check it carefully before loading anything."
+        },
+        {
+          "term": "Power Query",
+          "definition": "Excel's built-in tool for importing, inspecting, cleaning and reshaping data. When you click Transform Data in the Navigator window, Power Query Editor opens."
+        },
+        {
+          "term": "Query",
+          "definition": "In Power Query, a query is a saved set of steps that bring data from a source into Excel. Each source file becomes its own query."
+        },
+        {
+          "term": "Key field",
+          "definition": "A column used to connect one table to another. For example, dragon_id appears in both the delivery log and the dragon profiles. It is the key that links them."
+        },
+        {
+          "term": "Row count",
+          "definition": "The number of rows of data in a table, not counting the header row. Checking the row count tells you how many records you are working with."
+        },
+        {
+          "term": "Pattern",
+          "definition": "Something that appears more than once or that stands out when you look at the data. A pattern is a clue — it tells you something worth investigating."
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 1 — Open the start workbook",
+      "intro": "Every workbook in this pilot has a start file and a complete file. The start file is where you do your work. The complete file shows you what the finished result should look like. In this mission, you are opening the start file for Workbook 1.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Open the file: 02_workbook_data/workbook1_start.xlsx",
+            "This file has two sheets: Instructions and Inspection Notes.",
+            "The Instructions sheet tells you what to do in each mission.",
+            "The Inspection Notes sheet is where you will write down what you find as you explore."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. Open Excel.",
+            "Step 2. Go to File > Open.",
+            "Step 3. Navigate to the 02_workbook_data folder.",
+            "Step 4. Select workbook1_start.xlsx.",
+            "Step 5. Click Open.",
+            "Step 6. You should see two sheet tabs at the bottom: Instructions and Inspection Notes.",
+            "Step 7. Click on the Instructions sheet and read the overview.",
+            "Step 8. Click on the Inspection Notes sheet. Notice the four rows waiting to be filled in — one for each source file."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "You should see two sheets: Instructions and Inspection Notes.",
+            "The Inspection Notes sheet has a table with four rows — one for each source file you will import.",
+            "If your file looks different, close it and try opening it again from 02_workbook_data/workbook1_start.xlsx."
+          ]
+        },
+        {
+          "type": "nice_work",
+          "items": [
+            "You have opened your start file.",
+            "In a real data technician role, always open a fresh copy of the start file rather than continuing from where someone else left off. It helps you build the habit of following each step yourself."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 2 — Import the main activity file",
+      "intro": "In this mission, you are going to import the Q3 delivery log into Excel using the Data tab. This is the main table — it has one row for each delivery attempt made during Q3.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Source file: 01_source_data/source_primary.xlsx",
+            "This is an Excel file. You will import it using Data > Get Data > From File > From Workbook.",
+            "When the Navigator window opens, look carefully at what is inside before loading."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. In 02_workbook_data/workbook1_start.xlsx, click the Data tab in the Excel ribbon.",
+            "Step 2. Click Get Data.",
+            "Step 3. Hover over From File.",
+            "Step 4. Click From Workbook.",
+            "Step 5. A file browser window opens. Navigate to the 01_source_data folder.",
+            "Step 6. Select source_primary.xlsx.",
+            "Step 7. Click Import.",
+            "Step 8. The Navigator window opens. You should see a list of items on the left.",
+            "Step 9. Look for Q3_Deliveries in the list. Click on it once.",
+            "Step 10. A preview of the data appears on the right. Check that the first row shows column names like delivery_id, dragon_id, route_code.",
+            "Step 11. If the first row contains column names, the headers are already correct. Good.",
+            "Step 12. Click Transform Data. Power Query Editor opens.",
+            "Step 13. Look at the column names at the top. Check that you can see: delivery_id, dragon_id, route_code, delivery_date, package_type, status, weight_kg, delivery_time_mins, notes.",
+            "Step 14. Look at the bottom of the Power Query Editor window. It should say how many rows and columns the table has.",
+            "Step 15. Close Power Query Editor by clicking Close & Load on the Home tab.",
+            "Step 16. A new sheet appears in your workbook with the data loaded as a table.",
+            "Step 17. Rename the sheet: right-click the sheet tab and choose Rename. Type: Primary Data."
+          ]
+        },
+        {
+          "type": "common_trap",
+          "items": [
+            "When the Navigator window opens, check that you have selected the correct item from the list.",
+            "If you select the whole workbook name rather than the sheet name, you may get unexpected results.",
+            "Always click on the specific sheet or table name (Q3_Deliveries) and check the preview before clicking Transform Data.",
+            "If the first row of the preview shows numbers or data instead of column names, do not worry. In Power Query Editor, click the Home tab and then click Use First Row as Headers. But only do this if the first row really is a header row."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Your workbook should now have a sheet called Primary Data.",
+            "The sheet should have 9 columns: delivery_id, dragon_id, route_code, delivery_date, package_type, status, weight_kg, delivery_time_mins, notes.",
+            "Count the data rows. You should have approximately 41 rows of data (not counting the header).",
+            "If your row count looks very different, check that you imported source_primary.xlsx from the 01_source_data folder."
+          ]
+        },
+        {
+          "type": "spot_the_pattern",
+          "items": [
+            "Before you move on, have a quick scroll through the Primary Data sheet.",
+            "What catches your eye?",
+            "Do any values in the route_code column appear more often than others?",
+            "Do any rows look the same as a row you have already seen?",
+            "No need to fix anything yet. Just notice what is there.",
+            "A pattern is a clue, not a problem."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 3 — Import the extra delivery file",
+      "intro": "The Q4 delivery records were stored in a separate CSV file. In this mission, you are importing that file so you can see both quarters side by side. CSV stands for Comma-Separated Values — it is a plain text format that Excel can open and import easily.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Source file: 01_source_data/source_append.csv",
+            "This is a CSV file. You will import it using Data > Get Data > From File > From Text/CSV.",
+            "The structure should match source_primary.xlsx exactly — the same nine columns."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. Click the Data tab in the Excel ribbon.",
+            "Step 2. Click Get Data.",
+            "Step 3. Hover over From File.",
+            "Step 4. Click From Text/CSV.",
+            "Step 5. A file browser opens. Navigate to the 01_source_data folder.",
+            "Step 6. Select source_append.csv.",
+            "Step 7. Click Import.",
+            "Step 8. A preview window opens showing the first few rows. Check that the column names match the ones in the Primary Data sheet.",
+            "Step 9. Click Transform Data. Power Query Editor opens.",
+            "Step 10. Check that the column names are: delivery_id, dragon_id, route_code, delivery_date, package_type, status, weight_kg, delivery_time_mins, notes.",
+            "Step 11. Look at the row count at the bottom. You should have 12 data rows.",
+            "Step 12. Click Close & Load on the Home tab.",
+            "Step 13. A new sheet appears. Rename it: Append Data."
+          ]
+        },
+        {
+          "type": "common_trap",
+          "items": [
+            "CSV files do not always import with the correct data types automatically.",
+            "If the delivery_date column shows numbers instead of dates, or weight_kg shows text, you can fix this in Power Query Editor by clicking on the column header and choosing Change Type.",
+            "Do not worry about this for now. You will practise setting data types properly in Workbook 2.",
+            "For today, just check that the column names are correct and the row count looks right."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "Your workbook should now have a sheet called Append Data.",
+            "It should have the same 9 columns as Primary Data.",
+            "You should see 12 rows of data.",
+            "The delivery_id values should run from DEL-041 to DEL-052."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 4 — Import the dragon profiles file",
+      "intro": "The dragon profiles file comes from the DEDC HR system. It has one row per dragon. You will use this file later to bring dragon names, breeds and home bases into the delivery log. In this mission, you are just importing it and checking what it contains.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Source file: 01_source_data/source_secondary.csv",
+            "This is a CSV file. You will import it using Data > Get Data > From File > From Text/CSV.",
+            "The key field that connects this file to the delivery log is dragon_id."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. Click the Data tab.",
+            "Step 2. Click Get Data > From File > From Text/CSV.",
+            "Step 3. Navigate to 01_source_data.",
+            "Step 4. Select source_secondary.csv.",
+            "Step 5. Click Import.",
+            "Step 6. A preview window opens. Check the column names: dragon_id, dragon_name, breed, home_base, max_load_kg, active, joined_year.",
+            "Step 7. Click Transform Data.",
+            "Step 8. Check the row count. You should see 20 rows — one per dragon.",
+            "Step 9. Click Close & Load.",
+            "Step 10. Rename the new sheet: Dragon Profiles."
+          ]
+        },
+        {
+          "type": "spot_the_pattern",
+          "items": [
+            "Look at the breed column on your Dragon Profiles sheet.",
+            "What do you notice about the way the values are written?",
+            "Do the same breed appear written in different ways?",
+            "No need to fix it yet. Just notice it.",
+            "That is a clue for Workbook 2."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "You should see a Dragon Profiles sheet with 7 columns and 20 rows of data.",
+            "The dragon_id values should run from DRG-001 to DRG-020.",
+            "If your row count is different, check that you imported source_secondary.csv from the 01_source_data folder."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 5 — Import the route lookup PDF",
+      "intro": "The official route reference table lives in a PDF document. PDF stands for Portable Document Format. Excel and Power Query can import tables from PDF files, which is very useful when official reference documents are not available as spreadsheets. In this mission, you are importing the route reference and checking that it has loaded correctly.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Source file: 01_source_data/source_lookup.pdf",
+            "This is a PDF file. You will import it using Data > Get Data > From File > From PDF.",
+            "The key field that connects this file to the delivery log is route_code.",
+            "The table has 7 rows — one for each official route."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. Click the Data tab.",
+            "Step 2. Click Get Data.",
+            "Step 3. Hover over From File.",
+            "Step 4. Click From PDF.",
+            "Step 5. Navigate to 01_source_data.",
+            "Step 6. Select source_lookup.pdf.",
+            "Step 7. Click Import.",
+            "Step 8. The Navigator window opens. Power Query has found the tables inside the PDF.",
+            "Step 9. You should see an item in the list called Table001 or similar. Click on it.",
+            "Step 10. A preview of the route data appears on the right. Check for five columns: route_code, route_name, region, terrain_type, typical_time_mins.",
+            "Step 11. If the preview looks correct, click Transform Data.",
+            "Step 12. In Power Query Editor, check the column names match exactly. If they show generic names like Column1, you may need to click Use First Row as Headers on the Home tab — but only if the first row of the preview shows the actual column names.",
+            "Step 13. Check the row count. You should have 7 rows.",
+            "Step 14. Click Close & Load.",
+            "Step 15. Rename the new sheet: Route Lookup."
+          ]
+        },
+        {
+          "type": "common_trap",
+          "items": [
+            "PDF import can sometimes produce extra blank rows or misread column names.",
+            "If the Navigator window shows more than one table, preview each one and choose the one that looks like the route reference table.",
+            "If you see extra blank rows at the top or bottom of the loaded data, you will clean these in Workbook 2.",
+            "If yours looks slightly different, do not panic. Make a note in your Inspection Notes sheet and move on."
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "You should see a Route Lookup sheet with 5 columns and 7 rows of data.",
+            "The route_code column should contain values from RT-001 to RT-007.",
+            "Notice that RT-X99 does not appear in this table.",
+            "Remember that route code. You will see it again later."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 6 — Check headers and row counts",
+      "intro": "Now that all four source files are loaded, it is time to check that everything looks right. In this mission, you are going to count rows and check column names for each sheet. This is a routine step that a data technician does every time new data arrives.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Go to each sheet in 02_workbook_data/workbook1_start.xlsx and fill in the Inspection Notes sheet.",
+            "For each file, record: the row count, the column count, and anything unusual you notice.",
+            "You are looking for things that do not look quite right — without fixing them yet."
+          ]
+        },
+        {
+          "type": "try_this",
+          "items": [
+            "Step 1. Click on the Primary Data sheet.",
+            "Step 2. Look at the bottom-right of the Excel window. When data is selected, it shows the row count in the status bar. Or count the rows manually.",
+            "Step 3. Count the columns along the top header row.",
+            "Step 4. Click on your Inspection Notes sheet.",
+            "Step 5. Fill in the row count and column count for 01_source_data/source_primary.xlsx.",
+            "Step 6. Repeat for Append Data, Dragon Profiles, and Route Lookup.",
+            "Step 7. For each sheet, write anything unusual in the Anything unusual? column.",
+            "Step 8. Write any pattern you noticed in the Pattern spotted? column."
+          ]
+        },
+        {
+          "type": "worked_example",
+          "items": [
+            "Here is an example of what a filled-in Inspection Notes row might look like:",
+            "File: 01_source_data/source_append.csv",
+            "Row Count: 12",
+            "Column Count: 9",
+            "Anything unusual?: Package type has casing differences — EXPRESS vs express",
+            "Pattern spotted?: DEL-041 to DEL-052 — all Q4 records as expected"
+          ]
+        },
+        {
+          "type": "pause_and_check",
+          "items": [
+            "You should have filled in all four rows on the Inspection Notes sheet.",
+            "Your row counts should be approximately: Primary Data = 41, Append Data = 12, Dragon Profiles = 20, Route Lookup = 7.",
+            "If Primary Data shows 41 rows instead of 40 — well spotted. There is a reason for that.",
+            "Save your workbook before moving on."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "mission",
+      "heading": "Mission 7 — Spot simple patterns",
+      "intro": "In this final mission, you are going to look more carefully at the data and practise noticing patterns. Pattern spotting is a core data technician skill. You are not analysing — you are just looking and noticing. The aim is curiosity, not answers.",
+      "callouts": [
+        {
+          "type": "mission_brief",
+          "items": [
+            "Look at the Primary Data sheet with fresh eyes.",
+            "Try to answer the five questions below without changing anything in the data.",
+            "Record your observations in the Inspection Notes sheet or on a piece of paper."
+          ]
+        },
+        {
+          "type": "spot_the_pattern",
+          "items": [
+            "Question 1: Which route_code appears most often in the Primary Data sheet? Have a look at the column and estimate. You do not need to count exactly — just notice which one stands out.",
+            "Question 2: Are any delivery_id values repeated? Scroll through slowly and see if any value catches your eye more than once.",
+            "Question 3: Look at the package_type column. Do all the values look the same? Are any written in a different style?",
+            "Question 4: Look at the status column. Do any cells appear to be blank or empty?",
+            "Question 5: Look at the delivery_time_mins column. Do any values look unusually high compared to the others? What is the number that stands out?",
+            "Remember: a pattern is a clue, not a problem. You are not expected to fix anything yet."
+          ]
+        },
+        {
+          "type": "tiny_challenge",
+          "items": [
+            "Look at the dragon_id column on the Primary Data sheet.",
+            "One value has something extra that the others do not have.",
+            "It is very easy to miss because it is invisible.",
+            "Hint: it is not a letter or a number.",
+            "If you find it, write it in your Inspection Notes. If you do not find it today, you will definitely catch it in Workbook 2."
+          ]
+        },
+        {
+          "type": "nice_work",
+          "items": [
+            "You have completed Workbook 1.",
+            "You can now import four different types of source file into Excel.",
+            "You know how to check the Navigator window before loading.",
+            "You have practised spotting patterns in real data.",
+            "You have your Inspection Notes filled in and ready for Workbook 2.",
+            "Save your workbook. You are ready for the cleaning toolkit."
+          ]
+        }
+      ]
+    }
+  ],
+  "closing": {
+    "heading": "What you can now do",
+    "subheading": "Workbook 1 complete — well done",
+    "outcomes": [
+      "Import an Excel file using Data > Get Data > From File > From Workbook",
+      "Import a CSV file using Data > Get Data > From File > From Text/CSV",
+      "Import a PDF table using Data > Get Data > From File > From PDF",
+      "Check the Navigator window before loading any data",
+      "Count rows and columns to verify a file has loaded correctly",
+      "Spot simple patterns in raw data — repeated values, blank cells, casing differences",
+      "Record observations in an Inspection Notes sheet"
+    ],
+    "next_step": "Open 02_workbook_data/workbook2_start.xlsx to begin the Power Query Cleaning Toolkit."
+  }
+}

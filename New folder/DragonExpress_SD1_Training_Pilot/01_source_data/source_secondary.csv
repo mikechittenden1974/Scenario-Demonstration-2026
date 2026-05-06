@@ -1,0 +1,21 @@
+dragon_id,dragon_name,breed,home_base,max_load_kg,active,joined_year
+DRG-001,Ember Scales,Fire Drake,Ashford Keep,18,Yes,2019
+DRG-002,Thornback,Ridge Flyer,Stonegate,20,Yes,2020
+DRG-003,Celeste,Cloud Glider,High Perch,16,Yes,2018
+DRG-004,Grimble,Cave Drake,Deeprock,22,Yes,2021
+DRG-005,Smoulderwick,fire drake,Ashford Keep,25,Yes,2017
+DRG-006,Patches,Ridge Flyer,Stonegate,17,Yes,2022
+DRG-007,Brightfang,CLOUD GLIDER,High Perch,19,Yes,2020
+DRG-008,Crunchstone,Cave Drake,Deeprock,21,Yes,2019
+DRG-009,Nightwhisper,Fire Drake,Ashford Keep,15,Yes,2021
+DRG-010,Fossick,Ridge Flyer,Stonegate,18,Yes,2022
+DRG-011,Glimmer  Peak,Cloud Glider,High Perch,20,Yes,2023
+DRG-012,Ironscale,Cave Drake,Deeprock,24,Yes,2018
+DRG-013,Bluster,fire drake,Ashford Keep,16,No,2016
+DRG-014,Swiftneedle,Ridge Flyer,Stonegate,17,No,2015
+DRG-015,Vexclaw,Cloud Glider,High Perch,19,Yes,2023
+DRG-016,Thornwick,Cave Drake,Deeprock,23,Yes,2024
+DRG-017,Brightember,Fire Drake,Ashford Keep,18,Yes,2024
+DRG-018,Pebblesnout,Ridge Flyer,Stonegate,15,Yes,2024
+DRG-019,Moonscale,CLOUD GLIDER,High Perch,17,No,2014
+DRG-020,Dustfang,Cave Drake,Deeprock,20,Yes,2025
