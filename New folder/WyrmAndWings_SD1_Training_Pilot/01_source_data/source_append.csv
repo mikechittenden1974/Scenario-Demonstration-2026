@@ -1,0 +1,13 @@
+delivery_id,route_code,dragon_id,delivery_date,package_weight_kg,status,notes
+DEL-101,RT-02,DRG-11,2026-02-01,29.5,Complete,Southern Depot
+DEL-102,RT-04,DRG-07,2026-02-01,11.0,Complete,Southern Depot
+DEL-103,RT-06,DRG-04,2026-02-02,18.0,Delayed,Weather
+DEL-104,RT-04,DRG-07,2026-02-02,9.5,Complete,Southern Depot
+DEL-105,RT-06,DRG-04,2026-02-03,22.5,Complete,Southern Depot
+DEL-106,RT-02,DRG-11,2026-02-03,35.0,Delayed,High winds
+DEL-107,RT-04,DRG-07,2026-02-04,8.0,complete,
+DEL-108,RT-06,DRG-04,2026-02-04,15.0,Complete,Southern Depot
+DEL-109,RT-04,DRG-07,2026-02-05,12.0,Complete,Southern Depot
+DEL-110,RT-06,DRG-04,2026-02-05,19.5,Failed,Refused
+DEL-111,RT-02,DRG-11,2026-02-06,41.0,Delayed,Weight concern
+DEL-112,RT-04,DRG-07,2026-02-06,10.0,Complete,Southern Depot

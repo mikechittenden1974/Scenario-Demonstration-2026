@@ -1,0 +1,21 @@
+dragon_id,dragon_name,breed,handler,base_depot,registered_year
+DRG-01,Ember,Firewing,Beatrix Flameholt,Northern,2021
+DRG-02,Cinder,Ashscale,Gideon Scales,Northern,2020
+DRG-03,Puff,Cloudpuff,Nora Ashwick,Northern,2022
+DRG-04,Blaze,Firewing,Beatrix Flameholt,Southern,2021
+DRG-05,Smoke,Ashscale,Gideon Scales,Northern,2020
+DRG-06,Frost,Icewing,Nora Ashwick,Southern,2022
+DRG-07,Tempest,Stormwing,Beatrix Flameholt,Northern,2019
+DRG-08,Flicker,Firewing,Gideon Scales,Southern,2023
+DRG-09,Gale,Stormwing,Nora Ashwick,Northern,2021
+DRG-10,Claw,Ashscale,Beatrix Flameholt,Southern,2022
+DRG-11,Boulder,Stonewing,Gideon Scales,Northern,2018
+DRG-12,Mist,Cloudpuff,Nora Ashwick,Northern,2023
+DRG-13,Char,Firewing,Beatrix Flameholt,Southern,2020
+DRG-14,Zephyr,Icewing,Gideon Scales,Northern,2021
+DRG-15,Rumble,Stonewing,Nora Ashwick,Southern,2022
+DRG-16,Shimmer,Cloudpuff,Beatrix Flameholt,Northern,2023
+DRG-17,Scorch,Firewing,Gideon Scales,Southern,2019
+DRG-18,Drift,Icewing,Nora Ashwick,Northern,2020
+DRG-19,Granite,Stonewing,Beatrix Flameholt,Southern,2021
+DRG-20,Wisp,Cloudpuff,Gideon Scales,Northern,2022
